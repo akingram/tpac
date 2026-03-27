@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ===== RESET & ROOT ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 body{font-family:'Outfit',sans-serif;background:#faf8f5;color:#1a1a2e;overflow-x:hidden;line-height:1.6}
@@ -19,7 +18,6 @@ ul{list-style:none}
 input,textarea,select,button{font-family:inherit;-webkit-appearance:none;appearance:none}
 button{cursor:pointer}
 
-/* ===== CSS VARIABLES ===== */
 :root{
   --gold:#c8a96e;
   --gold-light:#e8c98e;
@@ -43,7 +41,6 @@ button{cursor:pointer}
   --nav-h:72px;
 }
 
-/* ===== TYPOGRAPHY ===== */
 h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-spacing:-.01em}
 .display{font-size:clamp(2.4rem,5.5vw,5rem);font-weight:600;line-height:1.05}
 .headline{font-size:clamp(1.8rem,3.5vw,3.2rem);font-weight:600}
@@ -52,16 +49,13 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;line-height:1.15;letter-spaci
 .body-lg{font-size:clamp(1rem,1.8vw,1.1rem);line-height:1.75}
 .body-sm{font-size:.9rem;line-height:1.6}
 
-/* ===== LAYOUT ===== */
 .container{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
 .container-wide{max-width:1400px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
 section{padding:clamp(60px,8vw,100px) 0}
 
-/* ===== PAGE SYSTEM ===== */
 .page{display:none}
 .page.active{display:block}
 
-/* ===== NAV ===== */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);box-shadow:0 2px 20px rgba(13,27,62,.35);transition:var(--transition);height:var(--nav-h)}
 nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3vw,40px);height:100%;max-width:1400px;margin:0 auto}
@@ -69,8 +63,8 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .nav-logo-mark{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--navy);flex-shrink:0}
 .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--white);white-space:nowrap}
 .nav-logo-text span{color:var(--gold)}
-.nav-links{display:flex;align-items:center;gap:clamp(16px,2.5vw,32px);flex-wrap:nowrap}
-.nav-links a{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.75);transition:var(--transition);padding:4px 0;border-bottom:2px solid transparent;cursor:pointer;user-select:none;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:clamp(12px,2vw,24px);flex-wrap:nowrap}
+.nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.75);transition:var(--transition);padding:4px 0;border-bottom:2px solid transparent;cursor:pointer;user-select:none;white-space:nowrap}
 .nav-links a:hover,.nav-links a.active{color:var(--gold-light);border-bottom-color:var(--gold)}
 .nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-light))!important;color:var(--navy)!important;font-weight:700!important;border:none!important;padding:9px 20px!important;border-radius:50px!important;opacity:1!important;white-space:nowrap}
 .nav-cta:hover{transform:translateY(-2px)!important;box-shadow:var(--shadow-gold)!important;border-bottom-color:transparent!important}
@@ -80,7 +74,6 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ===== MOBILE NAV ===== */
 .mobile-nav{display:none;position:fixed;inset:0;background:var(--navy);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:clamp(20px,4vh,32px);overflow-y:auto;padding:80px 24px 40px}
 .mobile-nav.open{display:flex}
 .mobile-nav a{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,5vw,2.2rem);color:var(--white);cursor:pointer;transition:var(--transition);text-align:center}
@@ -89,7 +82,6 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .mobile-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,.1);border:none;color:var(--white);font-size:1.4rem;cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:var(--transition)}
 .mobile-close:hover{background:rgba(255,255,255,.2)}
 
-/* ===== BUTTONS ===== */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;border-radius:50px;font-weight:600;font-size:.9rem;cursor:pointer;transition:var(--transition);border:none;position:relative;overflow:hidden;white-space:nowrap}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);box-shadow:var(--shadow-gold)}
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(200,169,110,.4)}
@@ -105,7 +97,6 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .btn-lg{padding:15px 36px;font-size:.95rem}
 .btn svg,.btn img{width:17px;height:17px;flex-shrink:0}
 
-/* ===== SECTION LABELS & DIVIDERS ===== */
 .section-label{display:inline-flex;align-items:center;gap:8px;color:var(--gold);margin-bottom:16px}
 .section-label::before{content:'';width:28px;height:1.5px;background:var(--gold);flex-shrink:0}
 .section-title{color:var(--navy);margin-bottom:16px}
@@ -116,16 +107,11 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .divider{width:56px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:16px 0 24px}
 .divider.centered{margin:16px auto 24px}
 
-/* ===== BADGE ===== */
 .badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-pale);color:var(--gold);padding:5px 14px;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:.06em;border:1px solid rgba(200,169,110,.2)}
-
-/* ===== CARDS ===== */
 .card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);transition:var(--transition);overflow:hidden;border:1px solid var(--border)}
 .card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
 
-/* ==============================
-   HOME PAGE
-   ============================== */
+/* HERO */
 .hero{min-height:100svh;min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--navy)}
 .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1438232992991-995b671e4b8a?w=1800&q=80') center/cover no-repeat;opacity:.18}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,27,62,.97) 0%,rgba(13,27,62,.78) 60%,rgba(26,45,90,.65) 100%)}
@@ -142,7 +128,7 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .hero-deco{position:absolute;right:-8%;bottom:-5%;width:50%;opacity:.04;pointer-events:none}
 .hero-deco svg{width:100%;fill:var(--white)}
 
-/* Service Times Strip */
+/* SERVICE STRIP */
 .service-strip{background:var(--gold-pale);border-top:2px solid rgba(200,169,110,.25);border-bottom:2px solid rgba(200,169,110,.25)}
 .service-strip-inner{display:flex;justify-content:center;align-items:stretch;flex-wrap:wrap}
 .service-item{display:flex;align-items:center;gap:12px;padding:clamp(14px,2vw,20px) clamp(16px,3vw,36px);border-right:1px solid rgba(200,169,110,.25);flex:1;min-width:200px}
@@ -152,7 +138,7 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .service-text .day{font-weight:700;font-size:.85rem;color:var(--navy)}
 .service-text .time{font-size:.78rem;color:var(--warm-gray);margin-top:2px}
 
-/* Welcome Section */
+/* WELCOME */
 .welcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
 .welcome-img-wrap{position:relative}
 .welcome-img{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;position:relative}
@@ -168,7 +154,7 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .value-text h4{font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:3px}
 .value-text p{font-size:.78rem;color:var(--text-soft);line-height:1.5}
 
-/* Telegram CTA Banner */
+/* TG BANNER */
 .tg-banner{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);padding:clamp(48px,7vw,80px) 0;position:relative;overflow:hidden}
 .tg-banner::before{content:'';position:absolute;top:-50%;right:-10%;width:clamp(300px,40vw,600px);height:clamp(300px,40vw,600px);background:radial-gradient(circle,rgba(34,158,217,.12) 0%,transparent 70%);pointer-events:none}
 .tg-banner-inner{display:flex;align-items:center;justify-content:space-between;gap:clamp(24px,4vw,40px);flex-wrap:wrap}
@@ -178,9 +164,7 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .tg-logo{width:72px;height:72px;background:var(--telegram);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 12px 40px rgba(34,158,217,.35)}
 .tg-logo svg{width:40px;height:40px;fill:var(--white)}
 
-/* ==============================
-   ABOUT PAGE
-   ============================== */
+/* PAGE HERO */
 .page-hero{position:relative;overflow:hidden;padding:calc(var(--nav-h) + clamp(60px,10vh,100px)) 0 clamp(48px,8vh,80px);text-align:center}
 .page-hero-bg{position:absolute;inset:0}
 .about-hero-bg{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%)}
@@ -189,10 +173,10 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .page-hero p{color:rgba(255,255,255,.7);font-size:clamp(.95rem,1.8vw,1.1rem);max-width:600px;margin:14px auto 0;position:relative;z-index:2;line-height:1.7}
 .page-hero .badge{position:relative;z-index:2;background:rgba(200,169,110,.15);color:var(--gold-light);border-color:rgba(200,169,110,.2);margin-bottom:20px}
 
+/* HISTORY */
 .history-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
 .history-img{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3}
 .history-img img{width:100%;height:100%;object-fit:cover}
-
 .timeline{position:relative;padding-left:28px;margin-top:40px}
 .timeline::before{content:'';position:absolute;left:5px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(200,169,110,.1))}
 .timeline-item{position:relative;margin-bottom:28px}
@@ -200,6 +184,7 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .timeline-item .year{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--gold);line-height:1}
 .timeline-item p{font-size:.88rem;color:var(--text-soft);margin-top:3px;line-height:1.6}
 
+/* MISSION */
 .mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,32px)}
 .mission-card{padding:clamp(24px,3vw,40px) clamp(20px,2.5vw,32px);border-radius:var(--radius);background:var(--white);border:1px solid var(--border);position:relative;overflow:hidden;transition:var(--transition)}
 .mission-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
@@ -209,6 +194,7 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .mission-card h3{font-size:clamp(1.2rem,1.8vw,1.4rem);color:var(--navy);margin-bottom:10px}
 .mission-card p{font-size:.88rem;color:var(--text-soft);line-height:1.7}
 
+/* PASTORS */
 .pastors-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,32px)}
 .pastor-card{background:var(--white);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:var(--transition)}
 .pastor-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
@@ -217,27 +203,22 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .pastor-card:hover .pastor-photo img{transform:scale(1.05)}
 .pastor-photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,62,.5),transparent)}
 .pastor-info{padding:clamp(18px,2.5vw,28px)}
-.pastor-info h3{font-size:clamp(1.2rem,1.8vw,1.4rem);color:var(--navy);margin-bottom:3px}
+.pastor-info h3{font-size:clamp(1.1rem,1.8vw,1.3rem);color:var(--navy);margin-bottom:3px}
 .pastor-info .role{font-size:.78rem;color:var(--gold);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
-.pastor-info p{font-size:.85rem;color:var(--text-soft);line-height:1.65}
+.pastor-info p{font-size:.84rem;color:var(--text-soft);line-height:1.65}
 
-/* ==============================
-   SERMONS PAGE
-   ============================== */
+/* SERMONS */
 .sermons-hero-bg{background:linear-gradient(135deg,var(--navy-mid) 0%,var(--navy) 100%)}
 .sermons-hero-bg::after{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=1600&q=80') center/cover;opacity:.07}
 .sermons-hero-badge{background:rgba(34,158,217,.15);color:#7fd4f5;border-color:rgba(34,158,217,.2)}
-
 .sermons-notice{background:rgba(34,158,217,.07);border:1.5px solid rgba(34,158,217,.2);border-radius:var(--radius);padding:clamp(16px,2.5vw,24px) clamp(16px,3vw,32px);display:flex;align-items:flex-start;gap:16px;margin-bottom:clamp(32px,5vw,56px)}
 .sermons-notice .icon{width:44px;height:44px;background:var(--telegram);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
 .sermons-notice .icon svg{width:22px;height:22px;fill:var(--white)}
 .sermons-notice p{font-size:.88rem;color:var(--navy);line-height:1.65}
 .sermons-notice strong{color:var(--telegram)}
-
 .sermons-filter{display:flex;align-items:center;gap:10px;margin-bottom:clamp(28px,4vw,48px);flex-wrap:wrap}
 .filter-btn{padding:7px 18px;border-radius:50px;font-size:.82rem;font-weight:600;cursor:pointer;transition:var(--transition);border:1.5px solid var(--border);background:var(--white);color:var(--text-soft)}
 .filter-btn.active,.filter-btn:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
-
 .sermons-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:clamp(16px,2.5vw,28px)}
 .sermon-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;transition:var(--transition)}
 .sermon-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
@@ -256,12 +237,9 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .sermon-tg-btn:hover{background:#1a8cbf;transform:translateY(-1px)}
 .sermon-tg-btn svg{width:15px;height:15px;fill:var(--white)}
 
-/* ==============================
-   EVENTS PAGE
-   ============================== */
+/* EVENTS */
 .events-hero-bg{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%)}
 .events-hero-bg::after{content:'';position:absolute;inset:0;opacity:.07;background:url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600&q=80') center/cover}
-
 .events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:clamp(16px,2.5vw,28px)}
 .event-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;transition:var(--transition);display:flex;flex-direction:column}
 .event-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
@@ -279,15 +257,12 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .event-detail{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--warm-gray);font-weight:500}
 .event-detail svg{width:13px;height:13px;fill:var(--gold);flex-shrink:0}
 
-/* ==============================
-   LIVE STREAM PAGE
-   ============================== */
+/* LIVE */
 .live-hero-bg{background:var(--navy)}
 .live-hero-bg::after{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=1600&q=80') center/cover;opacity:.1}
 .live-dot{display:inline-flex;align-items:center;gap:8px;background:rgba(255,0,0,.15);color:#ff6b6b;padding:5px 14px;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:.08em;border:1px solid rgba(255,100,100,.25);margin-bottom:20px;position:relative;z-index:2}
 .live-dot::before{content:'';width:7px;height:7px;background:#ff4444;border-radius:50%;animation:blink 1.5s infinite;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-
 .countdown-section{background:var(--gold-pale);padding:clamp(40px,6vw,60px) 0;border-top:2px solid rgba(200,169,110,.2);border-bottom:2px solid rgba(200,169,110,.2)}
 .countdown-title{text-align:center;color:var(--navy);margin-bottom:clamp(24px,4vw,40px);font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.5vw,1.7rem)}
 .countdown-grid{display:flex;justify-content:center;gap:clamp(16px,3vw,32px);flex-wrap:wrap}
@@ -295,7 +270,6 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .countdown-item .count{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,4rem);font-weight:700;color:var(--navy);line-height:1;display:block}
 .countdown-item .unit{font-size:.72rem;font-weight:600;color:var(--warm-gray);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
 .countdown-sep{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);color:var(--gold);align-self:center;margin-bottom:20px}
-
 .stream-box{background:var(--navy);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);margin:0 auto;max-width:900px}
 .stream-placeholder{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);color:var(--white);padding:clamp(24px,5vw,48px);text-align:center}
 .stream-placeholder .play-btn{width:72px;height:72px;background:rgba(200,169,110,.15);border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;cursor:pointer;transition:var(--transition);flex-shrink:0}
@@ -309,12 +283,9 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .stream-info-bar .info{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.65);font-size:.82rem}
 .stream-info-bar svg{width:15px;height:15px;fill:var(--gold);flex-shrink:0}
 
-/* ==============================
-   GIVING PAGE
-   ============================== */
+/* GIVING */
 .giving-hero-bg{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%)}
 .giving-hero-bg::after{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1600&q=80') center/cover;opacity:.07}
-
 .giving-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,40px);align-items:start}
 .giving-form-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:clamp(24px,3.5vw,40px);box-shadow:var(--shadow-md)}
 .giving-form-card h3{color:var(--navy);font-size:clamp(1.4rem,2.5vw,1.8rem);margin-bottom:24px}
@@ -334,7 +305,6 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .giving-type-btn .type-desc{font-size:.75rem;color:var(--text-soft);margin-top:2px;display:block}
 .secure-note{display:flex;align-items:center;gap:7px;font-size:.75rem;color:var(--warm-gray);margin-top:12px}
 .secure-note svg{width:13px;height:13px;fill:var(--warm-gray);flex-shrink:0}
-
 .giving-sidebar{display:flex;flex-direction:column;gap:20px}
 .progress-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:clamp(20px,3vw,32px)}
 .progress-card h4{color:var(--navy);font-size:clamp(1rem,1.8vw,1.2rem);margin-bottom:6px}
@@ -343,9 +313,15 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:50px;transition:width 1.5s ease}
 .progress-labels{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text-soft);font-weight:600}
 .progress-labels .raised{color:var(--navy)}
-.alt-giving-card{background:linear-gradient(135deg,var(--telegram) 0%,#1a8cbf 100%);border-radius:var(--radius);padding:clamp(20px,3vw,32px);color:var(--white)}
-.alt-giving-card h4{font-size:clamp(1rem,1.8vw,1.2rem);margin-bottom:6px}
-.alt-giving-card p{font-size:.83rem;opacity:.85;margin-bottom:20px;line-height:1.6}
+.alt-giving-card{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border-radius:var(--radius);padding:clamp(20px,3vw,32px);color:var(--white)}
+.alt-giving-card h4{font-size:clamp(1rem,1.8vw,1.2rem);margin-bottom:12px;color:var(--gold-light)}
+.bank-detail-row{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.bank-detail{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 16px}
+.bank-detail .bank-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light);margin-bottom:4px}
+.bank-detail .bank-num{font-size:1.1rem;font-weight:800;color:var(--white);letter-spacing:.05em;margin-bottom:2px}
+.bank-detail .bank-type{font-size:.75rem;color:rgba(255,255,255,.6);font-weight:500}
+.swift-row{font-size:.78rem;color:rgba(255,255,255,.6);margin-top:6px}
+.swift-row strong{color:var(--gold-light)}
 .why-give{background:var(--navy);border-radius:var(--radius);padding:clamp(20px,3vw,32px);color:var(--white)}
 .why-give h4{color:var(--gold-light);font-size:clamp(1rem,1.8vw,1.2rem);margin-bottom:16px}
 .why-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px}
@@ -353,11 +329,8 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .why-item svg{width:17px;height:17px;fill:var(--gold);flex-shrink:0;margin-top:2px}
 .why-item p{font-size:.85rem;opacity:.75;line-height:1.6}
 
-/* ==============================
-   CONTACT PAGE
-   ============================== */
+/* CONTACT */
 .contact-hero-bg{background:linear-gradient(135deg,var(--navy-mid),var(--navy))}
-
 .contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,4vw,48px);align-items:start}
 .contact-info{display:flex;flex-direction:column;gap:20px}
 .contact-info-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:clamp(20px,3vw,32px)}
@@ -370,7 +343,6 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .contact-item-text p{font-size:.86rem;color:var(--text-soft);line-height:1.55}
 .map-placeholder{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:var(--radius);overflow:hidden;height:clamp(160px,20vw,220px);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);gap:10px;font-size:.88rem;border:1px solid var(--border)}
 .map-placeholder svg{width:24px;height:24px;fill:var(--gold)}
-
 .contact-form-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:clamp(24px,3.5vw,40px);box-shadow:var(--shadow-md)}
 .contact-form-card h3{color:var(--navy);font-size:clamp(1.4rem,2.5vw,1.8rem);margin-bottom:24px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -378,16 +350,12 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .success-msg.show{display:flex}
 .success-msg svg{width:18px;height:18px;fill:#27ae60;flex-shrink:0}
 
-/* ==============================
-   JOIN PAGE
-   ============================== */
+/* JOIN */
 .join-hero-bg{background:linear-gradient(135deg,var(--navy),var(--navy-light))}
-
 .join-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:start}
 .join-form-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:clamp(24px,3.5vw,40px);box-shadow:var(--shadow-md)}
 .join-form-card h3{color:var(--navy);font-size:clamp(1.4rem,2.5vw,1.8rem);margin-bottom:6px}
 .join-form-card>.subtitle{font-size:.87rem;color:var(--text-soft);margin-bottom:28px;line-height:1.6}
-
 .community-cards{display:flex;flex-direction:column;gap:16px}
 .community-intro-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,1.7rem);color:var(--navy);margin-bottom:6px}
 .community-intro-p{font-size:.86rem;color:var(--text-soft);margin-bottom:24px;line-height:1.7}
@@ -404,9 +372,28 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .wa-icon-bg{background:#25D366}
 .wa-icon-bg svg{fill:var(--white)}
 
-/* ==============================
-   FOOTER
-   ============================== */
+/* GALLERY */
+.gallery-hero-bg{background:linear-gradient(135deg,var(--navy-light) 0%,var(--navy) 100%)}
+.gallery-hero-bg::after{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80') center/cover;opacity:.1}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:clamp(12px,2vw,20px)}
+.gallery-item{border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;position:relative;cursor:pointer;box-shadow:var(--shadow-sm);transition:var(--transition)}
+.gallery-item:hover{transform:scale(1.02);box-shadow:var(--shadow-md)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:var(--transition)}
+.gallery-item:hover img{transform:scale(1.07)}
+.gallery-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,62,.7),transparent);opacity:0;transition:var(--transition);display:flex;align-items:flex-end;padding:16px}
+.gallery-item:hover .gallery-item-overlay{opacity:1}
+.gallery-item-caption{color:var(--white);font-size:.82rem;font-weight:600;line-height:1.4}
+.gallery-upload-card{background:var(--gold-pale);border:2px dashed var(--gold);border-radius:var(--radius);padding:clamp(32px,5vw,56px);text-align:center;margin-top:clamp(32px,5vw,48px)}
+.gallery-upload-card svg{width:48px;height:48px;fill:var(--gold);margin:0 auto 16px}
+.gallery-upload-card h4{color:var(--navy);font-size:1.3rem;margin-bottom:8px}
+.gallery-upload-card p{color:var(--text-soft);font-size:.87rem;margin-bottom:20px;max-width:400px;margin-left:auto;margin-right:auto}
+
+/* SERMON ARCHIVE */
+.sermon-archive-block{text-align:center;margin-top:clamp(40px,6vw,56px);padding:clamp(32px,5vw,48px);background:var(--navy);border-radius:var(--radius)}
+.sermon-archive-block p.label-gold{color:var(--gold-light);font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.5vw,1.6rem);margin-bottom:6px}
+.sermon-archive-block p.sub{color:rgba(255,255,255,.5);font-size:.87rem;margin-bottom:24px}
+
+/* FOOTER */
 footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px)}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:clamp(24px,4vw,48px);margin-bottom:clamp(40px,6vw,60px)}
 .footer-brand .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px}
@@ -428,23 +415,12 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
 .footer-bottom p{color:rgba(255,255,255,.3);font-size:.78rem}
 .footer-bottom span{color:var(--gold)}
 
-/* ==============================
-   TOAST
-   ============================== */
+/* TOAST */
 .toast{position:fixed;bottom:clamp(16px,3vw,32px);right:clamp(16px,3vw,32px);background:var(--navy);color:var(--white);padding:14px 20px;border-radius:var(--radius-sm);box-shadow:var(--shadow-lg);font-size:.87rem;display:flex;align-items:center;gap:10px;transform:translateY(120px);opacity:0;transition:var(--transition);z-index:9999;max-width:min(340px,calc(100vw - 32px));border:1px solid rgba(200,169,110,.15)}
 .toast.show{transform:translateY(0);opacity:1}
 .toast svg{width:18px;height:18px;fill:var(--gold);flex-shrink:0}
 
-/* ==============================
-   SERMON ARCHIVE BLOCK
-   ============================== */
-.sermon-archive-block{text-align:center;margin-top:clamp(40px,6vw,56px);padding:clamp(32px,5vw,48px);background:var(--navy);border-radius:var(--radius)}
-.sermon-archive-block p.label-gold{color:var(--gold-light);font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.5vw,1.6rem);margin-bottom:6px}
-.sermon-archive-block p.sub{color:rgba(255,255,255,.5);font-size:.87rem;margin-bottom:24px}
-
-/* ==============================
-   RESPONSIVE — TABLET (≤1024px)
-   ============================== */
+/* RESPONSIVE */
 @media(max-width:1024px){
   .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
   .welcome-grid{grid-template-columns:1fr;gap:40px}
@@ -459,10 +435,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
   .contact-layout{grid-template-columns:1fr}
   .join-layout{grid-template-columns:1fr}
 }
-
-/* ==============================
-   RESPONSIVE — MOBILE (≤768px)
-   ============================== */
 @media(max-width:768px){
   :root{--nav-h:60px}
   section{padding:clamp(48px,8vw,72px) 0}
@@ -490,11 +462,8 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
   .values-grid{grid-template-columns:1fr}
   .stream-placeholder-actions{flex-direction:column;align-items:stretch}
   .stream-placeholder-actions .btn{justify-content:center}
+  .gallery-grid{grid-template-columns:1fr 1fr}
 }
-
-/* ==============================
-   RESPONSIVE — SMALL MOBILE (≤480px)
-   ============================== */
 @media(max-width:480px){
   :root{--nav-h:56px}
   .footer-grid{grid-template-columns:1fr}
@@ -513,11 +482,8 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
   .countdown-item .count{font-size:2.4rem}
   .mission-card{padding:20px}
   .pastor-info{padding:16px}
+  .gallery-grid{grid-template-columns:1fr}
 }
-
-/* ==============================
-   PRINT
-   ============================== */
 @media print{
   nav,footer,.hamburger,.mobile-nav,.toast{display:none!important}
   .page{display:block!important}
@@ -527,7 +493,7 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
 </head>
 <body>
 
-<!-- ===== NAVIGATION ===== -->
+<!-- NAVIGATION -->
 <nav id="navbar">
   <div class="nav-inner">
     <div class="nav-logo" onclick="showPage('home')" role="link" tabindex="0" aria-label="The Purpose Place Home">
@@ -539,7 +505,8 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       <a href="#" onclick="event.preventDefault();showPage('about')" class="nav-link" data-page="about">About</a>
       <a href="#" onclick="event.preventDefault();showPage('sermons')" class="nav-link" data-page="sermons">Sermons</a>
       <a href="#" onclick="event.preventDefault();showPage('events')" class="nav-link" data-page="events">Events</a>
-      <a href="#" onclick="event.preventDefault();showPage('live')" class="nav-link" data-page="live">Live Stream</a>
+      <a href="#" onclick="event.preventDefault();showPage('gallery')" class="nav-link" data-page="gallery">Gallery</a>
+      <a href="#" onclick="event.preventDefault();showPage('live')" class="nav-link" data-page="live">Live</a>
       <a href="#" onclick="event.preventDefault();showPage('giving')" class="nav-link" data-page="giving">Give</a>
       <a href="#" onclick="event.preventDefault();showPage('contact')" class="nav-link" data-page="contact">Contact</a>
       <a href="#" onclick="event.preventDefault();showPage('join')" class="nav-cta nav-link" data-page="join">Join Us</a>
@@ -550,20 +517,21 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
   </div>
 </nav>
 
-<!-- ===== MOBILE NAV ===== -->
+<!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Mobile navigation">
   <button class="mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
   <a href="#" onclick="event.preventDefault();showPage('home');toggleMobileMenu()">Home</a>
   <a href="#" onclick="event.preventDefault();showPage('about');toggleMobileMenu()">About</a>
   <a href="#" onclick="event.preventDefault();showPage('sermons');toggleMobileMenu()">Sermons</a>
   <a href="#" onclick="event.preventDefault();showPage('events');toggleMobileMenu()">Events</a>
+  <a href="#" onclick="event.preventDefault();showPage('gallery');toggleMobileMenu()">Gallery</a>
   <a href="#" onclick="event.preventDefault();showPage('live');toggleMobileMenu()">Live Stream</a>
   <a href="#" onclick="event.preventDefault();showPage('giving');toggleMobileMenu()">Give</a>
   <a href="#" onclick="event.preventDefault();showPage('contact');toggleMobileMenu()">Contact</a>
   <a href="#" onclick="event.preventDefault();showPage('join');toggleMobileMenu()" class="mobile-nav-cta">Join Us</a>
 </div>
 
-<!-- ===== TOAST ===== -->
+<!-- TOAST -->
 <div class="toast" id="toast" role="status" aria-live="polite">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
   <span id="toast-msg">Action completed!</span>
@@ -573,8 +541,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
      HOME PAGE
      ============================== -->
 <div class="page active" id="page-home">
-
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-overlay" aria-hidden="true"></div>
@@ -584,7 +550,7 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
         <h1 class="display">Raising &amp; Equipping <em>Men</em> for<br>Purposeful Living</h1>
         <p class="hero-desc body-lg">A Christ-centered community where faith grows, relationships flourish, and lives are transformed by the love of Jesus Christ. You belong here.</p>
         <div class="hero-actions">
-          <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener" class="btn btn-gold btn-lg">
+          <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" class="btn btn-gold btn-lg">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
             Sermons on Telegram
           </a>
@@ -605,7 +571,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
     <div class="hero-deco" aria-hidden="true"><svg viewBox="0 0 500 500"><path d="M250 50 L450 400 L50 400 Z" opacity=".3"/><circle cx="250" cy="200" r="150" fill="none" stroke="white" stroke-width="1" opacity=".2"/><circle cx="250" cy="200" r="100" fill="none" stroke="white" stroke-width="1" opacity=".15"/></svg></div>
   </section>
 
-  <!-- Service Times Strip -->
   <div class="service-strip">
     <div class="service-strip-inner" role="list">
       <div class="service-item" role="listitem">
@@ -627,7 +592,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
     </div>
   </div>
 
-  <!-- Welcome Section -->
   <section style="background:var(--white)">
     <div class="container">
       <div class="welcome-grid">
@@ -674,7 +638,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
     </div>
   </section>
 
-  <!-- Telegram CTA Banner -->
   <div class="tg-banner">
     <div class="container">
       <div class="tg-banner-inner">
@@ -685,7 +648,7 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           <h2>All Sermons Live on <span>Telegram</span></h2>
           <p>Join our Telegram channel for instant access to every message, download sermons for offline listening, and never miss a word from God's table.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
-            <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener" class="btn btn-telegram">
+            <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" class="btn btn-telegram">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Join Telegram Channel
             </a>
@@ -695,7 +658,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       </div>
     </div>
   </div>
-
 </div><!-- end home page -->
 
 
@@ -703,7 +665,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
      ABOUT PAGE
      ============================== -->
 <div class="page" id="page-about">
-
   <div class="page-hero">
     <div class="page-hero-bg about-hero-bg"></div>
     <div class="container">
@@ -713,7 +674,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
     </div>
   </div>
 
-  <!-- History -->
   <section style="background:var(--white)">
     <div class="container">
       <div class="history-grid">
@@ -737,7 +697,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
     </div>
   </section>
 
-  <!-- Mission / Vision / Values -->
   <section style="background:var(--cream)">
     <div class="container">
       <div class="section-header centered">
@@ -765,30 +724,84 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
     </div>
   </section>
 
-  <!-- Pastors -->
+  <!-- PASTORAL TEAM -->
   <section style="background:var(--white)">
     <div class="container">
       <div class="section-header centered">
         <p class="section-label label" style="justify-content:center">Leadership</p>
-        <h2 class="headline section-title">Meet Our Pastor</h2>
+        <h2 class="headline section-title">Meet Our Pastoral Team</h2>
         <div class="divider centered"></div>
       </div>
-      <div class="pastors-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,360px));justify-content:center">
+      <div class="pastors-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+
+        <!-- Apostle Akin-Akinyemi -->
         <div class="pastor-card">
           <div class="pastor-photo">
-            <img src="images/pastor.jpeg" alt="Apostle Akin-Akinyemi" loading="lazy">
+            <img src="images/pastor.jpeg" alt="Apostle Akin-Akinyemi" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80'">
             <div class="pastor-photo-overlay" aria-hidden="true"></div>
           </div>
           <div class="pastor-info">
             <h3>Apostle Akin-Akinyemi</h3>
             <div class="role">Senior Pastor &amp; Apostolic Oversight</div>
-            <p>A seasoned minister of the Gospel, an Apostle with a prophetic grace, whose love for God is contagious — inspiring young ones on living purposefully. He is the apostolic oversight for The Purpose Place Apostolic Church based in Ado Ekiti with the mandate to raise and equip men for purposeful living. He is a Graduate of Ekiti State University and The ECWA Theological Seminary where he holds a PGD in Theology. He is happily married.</p>
+            <p>A seasoned minister of the Gospel, an Apostle with a prophetic grace, whose love for God is contagious — inspiring young ones on living purposefully. He is the apostolic oversight for The Purpose Place Apostolic Church, a Graduate of Ekiti State University and The ECWA Theological Seminary where he holds a PGD in Theology. He is happily married.</p>
           </div>
         </div>
+
+        <!-- Blessing Akin-Akinyemi -->
+        <div class="pastor-card">
+          <div class="pastor-photo">
+            <img src="images/pastor blessing.jpeg" alt="Blessing Akin-Akinyemi" loading="lazy">
+            <div class="pastor-photo-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="pastor-info">
+            <h3>Blessing Akin-Akinyemi</h3>
+            <div class="role">Lead Pastor</div>
+            <p>A minister of the Gospel who loves to inspire young ones on living purposefully. Her passion gave birth to She-Thrive Initiatives — a God-inspired ministry to raise and equip women to thrive in their sphere of influence. She serves as Lead Pastor alongside her husband.</p>
+          </div>
+        </div>
+
+        <!-- Oladipupo Sunday Matthew -->
+        <div class="pastor-card">
+          <div class="pastor-photo">
+            <img src="images/pastor sunday.jpeg" alt="Oladipupo Sunday Matthew" loading="lazy">
+            <div class="pastor-photo-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="pastor-info">
+            <h3>Oladipupo Sunday Matthew</h3>
+            <div class="role">Minister </div>
+            <p>A practicing Electrical Engineer by profession and a committed, dedicated worker in the house of God. His mission is to impact people's lives for the expansion of God's kingdom, believing The Purpose Place is an opportunity for people to become all that God has purposed for them.</p>
+          </div>
+        </div>
+
+        <!-- Akinrinlola Mayowa -->
+        <div class="pastor-card">
+          <div class="pastor-photo">
+            <img src="images/mayowa.jpeg" alt="Akinrinlola Mayowa" loading="lazy">
+            <div class="pastor-photo-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="pastor-info">
+            <h3>Akinrinlola Mayowa</h3>
+            <div class="role">Minister</div>
+            <p>Believes he is called by God to serve actively in the vineyard of God and be relevant to the world. A software developer by profession and a committed, dedicated worker at The Purpose Place. His mission is to impact lives for the expansion of God's kingdom and see the life of God taught and lived in the community.</p>
+          </div>
+        </div>
+
+        <!-- Awosemo Eniitan Deborah -->
+        <div class="pastor-card">
+          <div class="pastor-photo">
+            <img src="images/mini enitan.jpeg" alt="Awosemo Eniitan Deborah" loading="lazy">
+            <div class="pastor-photo-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="pastor-info">
+            <h3>Awosemo Eniitan Deborah</h3>
+            <div class="role">Minister</div>
+            <p>A passionate minister serving at The Purpose Place. Deborah graduated with a Second Class Upper in Linguistics and Nigerian Languages from Ekiti State University and is currently pursuing her Master's degree. With a heart to bring people into their God-given purpose, she combines academic pursuits with ministry — inspiring others through song and God's word. Her vision is to impact lives and ignite purpose.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
-
 </div><!-- end about page -->
 
 
@@ -796,7 +809,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
      SERMONS PAGE
      ============================== -->
 <div class="page" id="page-sermons">
-
   <div class="page-hero">
     <div class="page-hero-bg sermons-hero-bg"></div>
     <div class="container">
@@ -808,12 +820,11 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
 
   <section>
     <div class="container">
-
       <div class="sermons-notice">
         <div class="icon" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
         </div>
-        <p><strong>All sermons are hosted exclusively on Telegram.</strong> Click any "Listen on Telegram" button below to be taken directly to that message on our channel. <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener" style="color:var(--telegram);font-weight:700">Join the channel →</a></p>
+        <p><strong>All sermons are hosted exclusively on Telegram.</strong> Click any "Listen on Telegram" button below to be taken directly to that message on our channel. <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" style="color:var(--telegram);font-weight:700">Join the channel →</a></p>
       </div>
 
       <div class="sermons-filter" role="group" aria-label="Filter sermons by series">
@@ -826,7 +837,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       </div>
 
       <div class="sermons-grid" id="sermons-grid">
-
         <div class="sermon-card" data-series="faith">
           <div class="sermon-card-top">
             <div class="sermon-series-badge">Faith Journey</div>
@@ -839,13 +849,12 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           <div class="sermon-card-body">
             <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Jeremiah 29:11</div>
             <p class="sermon-card-desc">Discover how to align your life with God's unique design and experience true fulfillment. This message unpacks what it means to trust God's plan even in seasons of uncertainty.</p>
-            <a href="https://t.me/yourchurchchannel/1" target="_blank" rel="noopener" class="sermon-tg-btn">
+            <a href="https://t.me/thepurposeplaceng/1" target="_blank" rel="noopener" class="sermon-tg-btn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Listen on Telegram
             </a>
           </div>
         </div>
-
         <div class="sermon-card" data-series="growth">
           <div class="sermon-card-top">
             <div class="sermon-series-badge">Spiritual Growth</div>
@@ -857,14 +866,13 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           </div>
           <div class="sermon-card-body">
             <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Matthew 6:6–13</div>
-            <p class="sermon-card-desc">A transformative message on developing a powerful, consistent prayer life. Learn how to pray with faith, persistence, and expectation — and how it changes everything around you.</p>
-            <a href="https://t.me/yourchurchchannel/2" target="_blank" rel="noopener" class="sermon-tg-btn">
+            <p class="sermon-card-desc">A transformative message on developing a powerful, consistent prayer life. Learn how to pray with faith, persistence, and expectation.</p>
+            <a href="https://t.me/thepurposeplaceng/2" target="_blank" rel="noopener" class="sermon-tg-btn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Listen on Telegram
             </a>
           </div>
         </div>
-
         <div class="sermon-card" data-series="relationships">
           <div class="sermon-card-top">
             <div class="sermon-series-badge">Relationships</div>
@@ -876,14 +884,13 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           </div>
           <div class="sermon-card-body">
             <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Ephesians 4:32</div>
-            <p class="sermon-card-desc">Understanding the depth of God's grace and how to extend that same grace to those around us — in marriage, friendship, family, and the workplace.</p>
-            <a href="https://t.me/yourchurchchannel/3" target="_blank" rel="noopener" class="sermon-tg-btn">
+            <p class="sermon-card-desc">Understanding the depth of God's grace and how to extend that same grace to those around us in marriage, friendship, family, and the workplace.</p>
+            <a href="https://t.me/thepurposeplaceng/3" target="_blank" rel="noopener" class="sermon-tg-btn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Listen on Telegram
             </a>
           </div>
         </div>
-
         <div class="sermon-card" data-series="kingdom">
           <div class="sermon-card-top">
             <div class="sermon-series-badge">Kingdom Living</div>
@@ -896,13 +903,12 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           <div class="sermon-card-body">
             <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Luke 10:19</div>
             <p class="sermon-card-desc">Believers are not powerless. This message teaches you to walk in the authority Christ has given every believer — over fear, over sickness, over every situation.</p>
-            <a href="https://t.me/yourchurchchannel/4" target="_blank" rel="noopener" class="sermon-tg-btn">
+            <a href="https://t.me/thepurposeplaceng/4" target="_blank" rel="noopener" class="sermon-tg-btn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Listen on Telegram
             </a>
           </div>
         </div>
-
         <div class="sermon-card" data-series="faith">
           <div class="sermon-card-top">
             <div class="sermon-series-badge">Faith Journey</div>
@@ -915,13 +921,12 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           <div class="sermon-card-body">
             <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Mark 9:24</div>
             <p class="sermon-card-desc">Doubt doesn't disqualify you — it can deepen your faith. An honest and liberating look at what to do when you feel like your faith isn't enough.</p>
-            <a href="https://t.me/yourchurchchannel/5" target="_blank" rel="noopener" class="sermon-tg-btn">
+            <a href="https://t.me/thepurposeplaceng/5" target="_blank" rel="noopener" class="sermon-tg-btn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Listen on Telegram
             </a>
           </div>
         </div>
-
         <div class="sermon-card" data-series="growth">
           <div class="sermon-card-top">
             <div class="sermon-series-badge">Spiritual Growth</div>
@@ -934,27 +939,24 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           <div class="sermon-card-body">
             <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Psalm 46:10</div>
             <p class="sermon-card-desc">In a world full of noise, learning to be still before God is one of the most radical acts of faith. This message teaches the ancient discipline of holy silence and solitude.</p>
-            <a href="https://t.me/yourchurchchannel/6" target="_blank" rel="noopener" class="sermon-tg-btn">
+            <a href="https://t.me/thepurposeplaceng/6" target="_blank" rel="noopener" class="sermon-tg-btn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Listen on Telegram
             </a>
           </div>
         </div>
-
       </div>
 
       <div class="sermon-archive-block">
         <p class="label-gold">100+ Messages Available</p>
         <p class="sub">Our complete sermon archive lives on Telegram. Join the channel and access everything instantly.</p>
-        <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener" class="btn btn-telegram btn-lg">
+        <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" class="btn btn-telegram btn-lg">
           <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
           View All Sermons on Telegram
         </a>
       </div>
-
     </div>
   </section>
-
 </div><!-- end sermons page -->
 
 
@@ -962,7 +964,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
      EVENTS PAGE
      ============================== -->
 <div class="page" id="page-events">
-
   <div class="page-hero">
     <div class="page-hero-bg events-hero-bg"></div>
     <div class="container">
@@ -971,11 +972,9 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       <p>Join us for life-changing gatherings, programs, and community activities.</p>
     </div>
   </div>
-
   <section>
     <div class="container">
       <div class="events-grid">
-
         <div class="event-card">
           <div class="event-img">
             <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Youth Summer Camp" loading="lazy">
@@ -993,7 +992,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
             <button onclick="showToast('Registration sent! Check your email to confirm.')" class="btn btn-navy" style="width:100%">Register Now</button>
           </div>
         </div>
-
         <div class="event-card">
           <div class="event-img">
             <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80" alt="Marriage and Family Conference" loading="lazy">
@@ -1011,7 +1009,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
             <button onclick="showToast('You\'re registered for Marriage Conference!')" class="btn btn-navy" style="width:100%">Register Now</button>
           </div>
         </div>
-
         <div class="event-card">
           <div class="event-img">
             <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80" alt="Community Outreach Day" loading="lazy">
@@ -1029,7 +1026,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
             <button onclick="showToast('You\'ve signed up to volunteer! See you there.')" class="btn btn-gold" style="width:100%">Volunteer Today</button>
           </div>
         </div>
-
         <div class="event-card">
           <div class="event-img">
             <img src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=600&q=80" alt="All-Night Prayer and Worship" loading="lazy">
@@ -1047,19 +1043,87 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
             <button onclick="showToast('You\'re registered for Prayer Night!')" class="btn btn-navy" style="width:100%">RSVP Now</button>
           </div>
         </div>
-
       </div>
     </div>
   </section>
-
 </div><!-- end events page -->
+
+
+<!-- ==============================
+     GALLERY PAGE
+     ============================== -->
+<div class="page" id="page-gallery">
+  <div class="page-hero">
+    <div class="page-hero-bg gallery-hero-bg"></div>
+    <div class="container">
+      <div class="badge" style="background:rgba(200,169,110,.15);color:var(--gold-light);border-color:rgba(200,169,110,.2)">Our Moments</div>
+      <h1 class="display" style="margin-top:12px">Photo Gallery</h1>
+      <p>A glimpse into the life and community of The Purpose Place Apostolic Church.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <!-- Gallery grid — replace src values with your actual uploaded images -->
+      <div class="gallery-grid" id="gallery-grid">
+
+        <div class="gallery-item">
+          <img src="images/gallery1.jpg" alt="Sunday Worship Service" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80'">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Sunday Worship Service</span></div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery2.jpg" alt="Prayer Meeting" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=600&q=80'">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Prayer Meeting</span></div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery3.jpg" alt="Community Outreach" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80'">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Community Outreach</span></div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery4.jpg" alt="Youth Fellowship" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80'">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Youth Fellowship</span></div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery5.jpg" alt="Bible Study" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1438032005730-c779502df39b?w=600&q=80'">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Bible Study</span></div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery6.jpg" alt="Church Family" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600&q=80'">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Church Family</span></div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery7.jpg" alt="Worship Night" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1472552944129-b035e9ea3744?w=600&q=80'">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Worship Night</span></div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery8.jpg" alt="Discipleship Program" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1438232992991-995b671e4b8a?w=600&q=80'">
+          <div class="gallery-item-overlay"><span class="gallery-item-caption">Discipleship Program</span></div>
+        </div>
+
+      </div>
+
+      <div class="gallery-upload-card">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        <h4>Add Your Photos</h4>
+        <p>To add pictures to the gallery, place your image files in an <strong>images/</strong> folder alongside this HTML file and name them <strong>gallery1.jpg, gallery2.jpg</strong> etc. You can add as many as you like by duplicating a gallery item block.</p>
+        <button onclick="showToast('To add photos: place images in the images/ folder named gallery1.jpg, gallery2.jpg etc.')" class="btn btn-gold">How to Upload Photos</button>
+      </div>
+    </div>
+  </section>
+</div><!-- end gallery page -->
 
 
 <!-- ==============================
      LIVE STREAM PAGE
      ============================== -->
 <div class="page" id="page-live">
-
   <div class="page-hero">
     <div class="page-hero-bg live-hero-bg"></div>
     <div class="container">
@@ -1098,7 +1162,7 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
               <svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:var(--navy)"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
               Set Reminder
             </button>
-            <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener" class="btn btn-telegram">
+            <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" class="btn btn-telegram">
               <svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Watch on Telegram
             </a>
@@ -1112,7 +1176,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       </div>
     </div>
   </section>
-
 </div><!-- end live page -->
 
 
@@ -1120,7 +1183,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
      GIVING PAGE
      ============================== -->
 <div class="page" id="page-giving">
-
   <div class="page-hero">
     <div class="page-hero-bg giving-hero-bg"></div>
     <div class="container">
@@ -1177,6 +1239,25 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
         </div>
 
         <div class="giving-sidebar">
+          <!-- BANK DETAILS -->
+          <div class="alt-giving-card">
+            <h4>🏦 Bank Transfer — GTBank</h4>
+            <div class="bank-detail-row">
+              <div class="bank-detail">
+                <div class="bank-label">Naira Account</div>
+                <div class="bank-num">0728166827</div>
+                <div class="bank-type">GTBank · Nigerian Naira (₦)</div>
+              </div>
+              <div class="bank-detail">
+                <div class="bank-label">Dollar Account</div>
+                <div class="bank-num">0728272290</div>
+                <div class="bank-type">GTBank · US Dollar ($)</div>
+              </div>
+            </div>
+            <div class="swift-row">SWIFT / BIC Code: <strong>GTBINGLAXXX</strong></div>
+            <p style="font-size:.75rem;color:rgba(255,255,255,.55);margin-top:10px;line-height:1.6">Account Name: The Purpose Place Apostolic Church. After transfer, please send proof of payment via WhatsApp to <strong style="color:var(--gold-light)">09123924233</strong>.</p>
+          </div>
+
           <div class="progress-card">
             <h4>Monthly Giving Goal</h4>
             <p class="subtitle">Building Fund Campaign</p>
@@ -1187,14 +1268,7 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
             </div>
             <p style="font-size:.78rem;color:var(--text-soft);margin-top:10px;line-height:1.6">Thank you to every generous giver. Together we're building a home for God's people.</p>
           </div>
-          <div class="alt-giving-card">
-            <h4>Give via Telegram Bot</h4>
-            <p>Our Telegram giving bot makes mobile donations quick, secure, and seamless — in under 2 minutes.</p>
-            <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener" class="btn" style="background:rgba(255,255,255,.2);color:white;border:1.5px solid rgba(255,255,255,.3);width:100%">
-              <svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
-              Open Giving Bot on Telegram
-            </a>
-          </div>
+
           <div class="why-give">
             <h4>Why Give?</h4>
             <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><p>Fund life-changing discipleship programs and Sunday services</p></div>
@@ -1206,7 +1280,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       </div>
     </div>
   </section>
-
 </div><!-- end giving page -->
 
 
@@ -1214,7 +1287,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
      CONTACT PAGE
      ============================== -->
 <div class="page" id="page-contact">
-
   <div class="page-hero">
     <div class="page-hero-bg contact-hero-bg"></div>
     <div class="container">
@@ -1223,7 +1295,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       <p>We'd love to hear from you. Reach out anytime — we're here for you.</p>
     </div>
   </div>
-
   <section>
     <div class="container">
       <div class="contact-layout">
@@ -1249,13 +1320,13 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           </div>
           <div class="map-placeholder" role="img" aria-label="Map showing Beacon Behind AB Hotel, Adebayo, Ado Ekiti">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <span>Beacon Behind AB Hotel, Adebayo, Ado Ekiti — View on Maps</span>
+            <span>Beacon Behind AB Hotel, Adebayo, Ado Ekiti</span>
           </div>
           <div class="contact-info-card">
             <h4>Connect on Telegram</h4>
             <div class="contact-item">
               <div class="contact-item-icon" style="background:rgba(34,158,217,.1);border-color:rgba(34,158,217,.2)" aria-hidden="true"><svg viewBox="0 0 24 24" style="fill:var(--telegram)"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg></div>
-              <div class="contact-item-text"><div class="label-sm" style="color:var(--telegram)">Main Channel</div><p><a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener" style="color:var(--telegram)">@yourchurchchannel</a></p></div>
+              <div class="contact-item-text"><div class="label-sm" style="color:var(--telegram)">Telegram Channel</div><p><a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" style="color:var(--telegram)">@thepurposeplaceng</a></p></div>
             </div>
           </div>
         </div>
@@ -1291,7 +1362,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       </div>
     </div>
   </section>
-
 </div><!-- end contact page -->
 
 
@@ -1299,7 +1369,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
      JOIN PAGE
      ============================== -->
 <div class="page" id="page-join">
-
   <div class="page-hero">
     <div class="page-hero-bg join-hero-bg"></div>
     <div class="container">
@@ -1308,7 +1377,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       <p>Take your next step — become a member, join a group, and be part of something greater than yourself.</p>
     </div>
   </div>
-
   <section>
     <div class="container">
       <div class="join-layout">
@@ -1361,7 +1429,7 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
             <div>
               <h4>Telegram Channel</h4>
               <p>All sermons, devotionals, and church updates — delivered instantly. Download messages for offline use.</p>
-              <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener" class="btn btn-telegram btn-sm">Join on Telegram</a>
+              <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" class="btn btn-telegram btn-sm">Join on Telegram</a>
             </div>
           </div>
           <div class="community-card">
@@ -1384,11 +1452,10 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       </div>
     </div>
   </section>
-
 </div><!-- end join page -->
 
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -1402,7 +1469,7 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           <a class="social-btn" href="#" title="Facebook" role="listitem"><svg viewBox="0 0 24 24" aria-label="Facebook"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
           <a class="social-btn" href="#" title="Instagram" role="listitem"><svg viewBox="0 0 24 24" aria-label="Instagram"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
           <a class="social-btn" href="#" title="YouTube" role="listitem"><svg viewBox="0 0 24 24" aria-label="YouTube"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
-          <a class="social-btn" href="https://t.me/yourchurchchannel" target="_blank" rel="noopener" title="Telegram" role="listitem"><svg viewBox="0 0 24 24" aria-label="Telegram"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg></a>
+          <a class="social-btn" href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" title="Telegram" role="listitem"><svg viewBox="0 0 24 24" aria-label="Telegram"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg></a>
         </div>
       </div>
       <div class="footer-col">
@@ -1411,6 +1478,7 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
         <a onclick="showPage('about')">About Us</a>
         <a onclick="showPage('sermons')">Sermons</a>
         <a onclick="showPage('events')">Events</a>
+        <a onclick="showPage('gallery')">Gallery</a>
         <a onclick="showPage('live')">Live Stream</a>
         <a onclick="showPage('giving')">Give</a>
         <a onclick="showPage('contact')">Contact</a>
@@ -1426,18 +1494,18 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
         <a style="cursor:default;pointer-events:none;font-size:.78rem;line-height:1.5;margin-top:4px">Beacon Behind AB Hotel<br>Adebayo, Ado Ekiti State</a>
       </div>
       <div class="footer-col">
-        <h4>Telegram Channels</h4>
+        <h4>Telegram Channel</h4>
         <div class="footer-tg-cta">
           <p>Join our Telegram for instant access to all sermons, live updates, prayer requests, and community news.</p>
-          <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener" class="btn btn-telegram btn-sm" style="width:100%">
+          <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" class="btn btn-telegram btn-sm" style="width:100%">
             <svg viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px;fill:white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
-            @yourchurchchannel
+            @thepurposeplaceng
           </a>
         </div>
-        <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener" style="margin-top:12px">📢 Sermons Channel</a>
-        <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener">🙏 Prayer Group</a>
-        <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener">👶 Youth Group</a>
-        <a href="https://t.me/yourchurchchannel" target="_blank" rel="noopener">💝 Giving Bot</a>
+        <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" style="margin-top:12px">📢 Sermons Channel</a>
+        <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener">🙏 Prayer Group</a>
+        <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener">👶 Youth Group</a>
+        <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener">💝 Giving Bot</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1447,14 +1515,11 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
   </div>
 </footer>
 
-<!-- ===== JAVASCRIPT ===== -->
 <script>
-// ===== STATE =====
 var currentPage = 'home';
 var countdownInterval = null;
 var mobileMenuOpen = false;
 
-// ===== PAGE NAVIGATION =====
 function showPage(page) {
   if (page === currentPage && document.getElementById('page-' + page)) {
     window.scrollTo({top:0,behavior:'smooth'});
@@ -1465,21 +1530,14 @@ function showPage(page) {
   if (!el) return;
   el.classList.add('active');
   currentPage = page;
-  // Update nav active states
   document.querySelectorAll('.nav-link').forEach(function(l){
     var dp = l.getAttribute('data-page');
     l.classList.toggle('active', dp === page);
   });
   window.scrollTo({top:0,behavior:'instant'});
-  if (page === 'live') {
-    startCountdown();
-  } else {
-    clearInterval(countdownInterval);
-    countdownInterval = null;
-  }
+  if (page === 'live') { startCountdown(); } else { clearInterval(countdownInterval); countdownInterval = null; }
 }
 
-// ===== MOBILE MENU =====
 function toggleMobileMenu() {
   mobileMenuOpen = !mobileMenuOpen;
   var menu = document.getElementById('mobileNav');
@@ -1490,16 +1548,12 @@ function toggleMobileMenu() {
   document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
 }
 
-function closeMobileMenu() {
-  if (mobileMenuOpen) toggleMobileMenu();
-}
+function closeMobileMenu() { if (mobileMenuOpen) toggleMobileMenu(); }
 
-// ===== NAVBAR SCROLL =====
 window.addEventListener('scroll', function() {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
 }, {passive:true});
 
-// ===== TOAST =====
 var toastTimer = null;
 function showToast(msg) {
   var t = document.getElementById('toast');
@@ -1510,17 +1564,14 @@ function showToast(msg) {
   toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 3800);
 }
 
-// ===== SERMON FILTER =====
 function filterSermons(btn, series) {
   document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
   btn.classList.add('active');
   document.querySelectorAll('.sermon-card').forEach(function(card){
-    var show = series === 'all' || card.dataset.series === series;
-    card.style.display = show ? '' : 'none';
+    card.style.display = (series === 'all' || card.dataset.series === series) ? '' : 'none';
   });
 }
 
-// ===== AMOUNT PILLS =====
 function selectAmount(el) {
   document.querySelectorAll('.amount-pill').forEach(function(p){ p.classList.remove('active'); });
   el.classList.add('active');
@@ -1528,25 +1579,20 @@ function selectAmount(el) {
   if (custom) custom.value = '';
 }
 
-// Amount pill keyboard support
 document.addEventListener('keydown', function(e) {
   if (e.target.classList.contains('amount-pill') && (e.key === 'Enter' || e.key === ' ')) {
-    e.preventDefault();
-    selectAmount(e.target);
+    e.preventDefault(); selectAmount(e.target);
   }
 });
 
-// ===== GIVING TYPE =====
 function selectGivingType(el) {
   document.querySelectorAll('.giving-type-btn').forEach(function(b){ b.classList.remove('active'); });
   el.classList.add('active');
 }
 
-// ===== FORM HANDLERS =====
 function handleGiving(e) {
   e.preventDefault();
-  showToast('Processing donation... Redirecting to secure payment.');
-  setTimeout(function(){ showToast('Thank you for your generous gift! 🙏'); }, 2600);
+  showToast('Thank you for your generous gift! 🙏 Please complete your bank transfer.');
   e.target.reset();
   var pills = document.querySelectorAll('.amount-pill');
   if (pills[2]) selectAmount(pills[2]);
@@ -1567,20 +1613,16 @@ function handleJoin(e) {
   e.target.reset();
 }
 
-// ===== COUNTDOWN TIMER =====
 function startCountdown() {
   clearInterval(countdownInterval);
   function getNextSunday10am() {
     var now = new Date();
     var next = new Date(now);
-    var day = now.getDay(); // 0=Sun
+    var day = now.getDay();
     var daysUntil = day === 0 ? 0 : 7 - day;
     next.setDate(now.getDate() + daysUntil);
     next.setHours(10, 0, 0, 0);
-    // If today is Sunday and it's already past 10AM, jump to next Sunday
-    if (day === 0 && now >= next) {
-      next.setDate(next.getDate() + 7);
-    }
+    if (day === 0 && now >= next) { next.setDate(next.getDate() + 7); }
     return next;
   }
   function pad(n) { return String(n).padStart(2, '0'); }
@@ -1592,12 +1634,7 @@ function startCountdown() {
     var h = Math.floor((diff % 86400000) / 3600000);
     var m = Math.floor((diff % 3600000) / 60000);
     var s = Math.floor((diff % 60000) / 1000);
-    var el = {
-      'd': document.getElementById('cd-days'),
-      'h': document.getElementById('cd-hours'),
-      'm': document.getElementById('cd-mins'),
-      's': document.getElementById('cd-secs')
-    };
+    var el = { 'd':document.getElementById('cd-days'), 'h':document.getElementById('cd-hours'), 'm':document.getElementById('cd-mins'), 's':document.getElementById('cd-secs') };
     if (el.d) el.d.textContent = pad(d);
     if (el.h) el.h.textContent = pad(h);
     if (el.m) el.m.textContent = pad(m);
@@ -1607,16 +1644,11 @@ function startCountdown() {
   countdownInterval = setInterval(update, 1000);
 }
 
-// ===== KEYBOARD TRAP FOR MOBILE NAV =====
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && mobileMenuOpen) {
-    closeMobileMenu();
-  }
+  if (e.key === 'Escape' && mobileMenuOpen) { closeMobileMenu(); }
 });
 
-// ===== INIT =====
 document.addEventListener('DOMContentLoaded', function() {
-  // Wire data-page links
   document.querySelectorAll('[data-page]').forEach(function(link) {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -1625,8 +1657,6 @@ document.addEventListener('DOMContentLoaded', function() {
       closeMobileMenu();
     });
   });
-
-  // Logo nav
   var logo = document.querySelector('.nav-logo');
   if (logo) {
     logo.addEventListener('click', function() { showPage('home'); });
@@ -1634,11 +1664,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showPage('home'); }
     });
   }
-
-  // Set initial active state
   document.querySelectorAll('[data-page="home"]').forEach(function(l){ l.classList.add('active'); });
-
-  // Lazy-load images if IntersectionObserver available
   if ('IntersectionObserver' in window) {
     var imgs = document.querySelectorAll('img[loading="lazy"]');
     var obs = new IntersectionObserver(function(entries) {
