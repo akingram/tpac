@@ -383,10 +383,6 @@ nav.scrolled{box-shadow:0 4px 28px rgba(13,27,62,.5)}
 .gallery-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,27,62,.7),transparent);opacity:0;transition:var(--transition);display:flex;align-items:flex-end;padding:16px}
 .gallery-item:hover .gallery-item-overlay{opacity:1}
 .gallery-item-caption{color:var(--white);font-size:.82rem;font-weight:600;line-height:1.4}
-.gallery-upload-card{background:var(--gold-pale);border:2px dashed var(--gold);border-radius:var(--radius);padding:clamp(32px,5vw,56px);text-align:center;margin-top:clamp(32px,5vw,48px)}
-.gallery-upload-card svg{width:48px;height:48px;fill:var(--gold);margin:0 auto 16px}
-.gallery-upload-card h4{color:var(--navy);font-size:1.3rem;margin-bottom:8px}
-.gallery-upload-card p{color:var(--text-soft);font-size:.87rem;margin-bottom:20px;max-width:400px;margin-left:auto;margin-right:auto}
 
 /* SERMON ARCHIVE */
 .sermon-archive-block{text-align:center;margin-top:clamp(40px,6vw,56px);padding:clamp(32px,5vw,48px);background:var(--navy);border-radius:var(--radius)}
@@ -484,11 +480,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
   .pastor-info{padding:16px}
   .gallery-grid{grid-template-columns:1fr}
 }
-@media print{
-  nav,footer,.hamburger,.mobile-nav,.toast{display:none!important}
-  .page{display:block!important}
-  .hero{min-height:auto;padding:20px 0}
-}
 </style>
 </head>
 <body>
@@ -497,18 +488,21 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
 <nav id="navbar">
   <div class="nav-inner">
     <div class="nav-logo" onclick="showPage('home')" role="link" tabindex="0" aria-label="The Purpose Place Home">
-      <div class="nav-logo-mark" aria-hidden="true">T</div>
+      <div class="nav-logo-mark" aria-hidden="true">
+        <img src="images/logo.jpeg" alt="The Purpose Place logo" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
       <div class="nav-logo-text">The Purpose <span>Place</span></div>
     </div>
+    <!-- NAV ORDER: Home · About · Gallery · Live · Give · Contact · Sermons · Events · Join Us -->
     <div class="nav-links" role="navigation" aria-label="Main navigation">
       <a href="#" onclick="event.preventDefault();showPage('home')" class="nav-link" data-page="home">Home</a>
       <a href="#" onclick="event.preventDefault();showPage('about')" class="nav-link" data-page="about">About</a>
-      <a href="#" onclick="event.preventDefault();showPage('sermons')" class="nav-link" data-page="sermons">Sermons</a>
-      <a href="#" onclick="event.preventDefault();showPage('events')" class="nav-link" data-page="events">Events</a>
       <a href="#" onclick="event.preventDefault();showPage('gallery')" class="nav-link" data-page="gallery">Gallery</a>
       <a href="#" onclick="event.preventDefault();showPage('live')" class="nav-link" data-page="live">Live</a>
       <a href="#" onclick="event.preventDefault();showPage('giving')" class="nav-link" data-page="giving">Give</a>
       <a href="#" onclick="event.preventDefault();showPage('contact')" class="nav-link" data-page="contact">Contact</a>
+      <a href="#" onclick="event.preventDefault();showPage('sermons')" class="nav-link" data-page="sermons">Sermons</a>
+      <a href="#" onclick="event.preventDefault();showPage('events')" class="nav-link" data-page="events">Events</a>
       <a href="#" onclick="event.preventDefault();showPage('join')" class="nav-cta nav-link" data-page="join">Join Us</a>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
@@ -517,17 +511,17 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
   </div>
 </nav>
 
-<!-- MOBILE NAV -->
+<!-- MOBILE NAV — same order -->
 <div class="mobile-nav" id="mobileNav" role="dialog" aria-label="Mobile navigation">
   <button class="mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">✕</button>
   <a href="#" onclick="event.preventDefault();showPage('home');toggleMobileMenu()">Home</a>
   <a href="#" onclick="event.preventDefault();showPage('about');toggleMobileMenu()">About</a>
-  <a href="#" onclick="event.preventDefault();showPage('sermons');toggleMobileMenu()">Sermons</a>
-  <a href="#" onclick="event.preventDefault();showPage('events');toggleMobileMenu()">Events</a>
   <a href="#" onclick="event.preventDefault();showPage('gallery');toggleMobileMenu()">Gallery</a>
   <a href="#" onclick="event.preventDefault();showPage('live');toggleMobileMenu()">Live Stream</a>
   <a href="#" onclick="event.preventDefault();showPage('giving');toggleMobileMenu()">Give</a>
   <a href="#" onclick="event.preventDefault();showPage('contact');toggleMobileMenu()">Contact</a>
+  <a href="#" onclick="event.preventDefault();showPage('sermons');toggleMobileMenu()">Sermons</a>
+  <a href="#" onclick="event.preventDefault();showPage('events');toggleMobileMenu()">Events</a>
   <a href="#" onclick="event.preventDefault();showPage('join');toggleMobileMenu()" class="mobile-nav-cta">Join Us</a>
 </div>
 
@@ -537,9 +531,7 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
   <span id="toast-msg">Action completed!</span>
 </div>
 
-<!-- ==============================
-     HOME PAGE
-     ============================== -->
+<!-- ==============================  HOME  ============================== -->
 <div class="page active" id="page-home">
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
@@ -597,10 +589,10 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       <div class="welcome-grid">
         <div class="welcome-img-wrap">
           <div class="welcome-img">
-            <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80" alt="The Purpose Place community gathered together" loading="lazy">
+            <img src="images/image1.jpeg" alt="The Purpose Place community" loading="lazy">
           </div>
           <div class="welcome-img-accent" aria-hidden="true"></div>
-          <div class="welcome-img-badge" aria-label="Mandate: Exodus 18:20, Matthew 28:19-20">
+          <div class="welcome-img-badge">
             <div class="num" style="font-size:1rem">Exd. 18:20</div>
             <div class="txt">Mat. 28:19–20<br>Our Mandate</div>
           </div>
@@ -609,25 +601,13 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           <p class="section-label label">Our Story</p>
           <h2 class="headline section-title">A Place Where<br>Everyone Belongs</h2>
           <div class="divider"></div>
-          <p class="body-lg" style="color:var(--text-soft);margin-bottom:16px">The Purpose Place Apostolic Church is a Christ-centered community based in Ado Ekiti, with a mandate to raise and equip men for purposeful living. We believe that the Gospel of Jesus Christ has the power to heal, restore, and transform every life it touches.</p>
-          <p style="color:var(--text-soft);font-size:.93rem;margin-bottom:32px;line-height:1.75">Whether you're encountering faith for the first time or deepening a lifelong walk with God — there is a place for you here. Our doors are open, our hearts even more so.</p>
+          <p class="body-lg" style="color:var(--text-soft);margin-bottom:16px">The Purpose Place Apostolic Church is a Christ-centered community based in Ado Ekiti, with a mandate to raise and equip men for purposeful living.</p>
+          <p style="color:var(--text-soft);font-size:.93rem;margin-bottom:32px;line-height:1.75">Whether you're encountering faith for the first time or deepening a lifelong walk with God — there is a place for you here.</p>
           <div class="values-grid">
-            <div class="value-item">
-              <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-              <div class="value-text"><h4>Faith-Centered</h4><p>Rooted in God's Word and love</p></div>
-            </div>
-            <div class="value-item">
-              <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
-              <div class="value-text"><h4>Community</h4><p>A family beyond bloodlines</p></div>
-            </div>
-            <div class="value-item">
-              <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-              <div class="value-text"><h4>Discipleship</h4><p>Growing deeper, going further</p></div>
-            </div>
-            <div class="value-item">
-              <div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-              <div class="value-text"><h4>Mission</h4><p>Transforming communities</p></div>
-            </div>
+            <div class="value-item"><div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div class="value-text"><h4>Faith-Centered</h4><p>Rooted in God's Word and love</p></div></div>
+            <div class="value-item"><div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><div class="value-text"><h4>Community</h4><p>A family beyond bloodlines</p></div></div>
+            <div class="value-item"><div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="value-text"><h4>Discipleship</h4><p>Growing deeper, going further</p></div></div>
+            <div class="value-item"><div class="value-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><div class="value-text"><h4>Mission</h4><p>Transforming communities</p></div></div>
           </div>
           <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap">
             <button onclick="showPage('about')" class="btn btn-navy">Discover Our Story</button>
@@ -641,9 +621,7 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
   <div class="tg-banner">
     <div class="container">
       <div class="tg-banner-inner">
-        <div class="tg-logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
-        </div>
+        <div class="tg-logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg></div>
         <div class="tg-banner-text">
           <h2>All Sermons Live on <span>Telegram</span></h2>
           <p>Join our Telegram channel for instant access to every message, download sermons for offline listening, and never miss a word from God's table.</p>
@@ -658,12 +636,9 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       </div>
     </div>
   </div>
-</div><!-- end home page -->
+</div>
 
-
-<!-- ==============================
-     ABOUT PAGE
-     ============================== -->
+<!-- ==============================  ABOUT  ============================== -->
 <div class="page" id="page-about">
   <div class="page-hero">
     <div class="page-hero-bg about-hero-bg"></div>
@@ -673,7 +648,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       <p>Rooted in faith. Grounded in love. Called to raise and equip men for purposeful living.</p>
     </div>
   </div>
-
   <section style="background:var(--white)">
     <div class="container">
       <div class="history-grid">
@@ -696,7 +670,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       </div>
     </div>
   </section>
-
   <section style="background:var(--cream)">
     <div class="container">
       <div class="section-header centered">
@@ -705,26 +678,12 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
         <div class="divider centered"></div>
       </div>
       <div class="mission-grid">
-        <div class="mission-card">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
-          <h3>Our Vision</h3>
-          <p>A Christ-centered community that raises and equips men for a purposeful living.</p>
-        </div>
-        <div class="mission-card">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-          <h3>Our Mission</h3>
-          <p>To train an army of people who are passionate about living out God's purposes for their life. To make disciples and teach them to obey the commands of Christ.</p>
-        </div>
-        <div class="mission-card">
-          <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-          <h3>Our Mandate</h3>
-          <p>Through our apostolic and prophetic based mandate, we help identify God's calling and raise a prospect end-time army. — Exd. 18:20, Mat. 28:19–20</p>
-        </div>
+        <div class="mission-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div><h3>Our Vision</h3><p>A Christ-centered community that raises and equips men for a purposeful living.</p></div>
+        <div class="mission-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3>Our Mission</h3><p>To train an army of people passionate about living out God's purposes. To make disciples and teach them to obey the commands of Christ.</p></div>
+        <div class="mission-card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><h3>Our Mandate</h3><p>Through our apostolic and prophetic based mandate, we help identify God's calling and raise a prospect end-time army. — Exd. 18:20, Mat. 28:19–20</p></div>
       </div>
     </div>
   </section>
-
-  <!-- PASTORAL TEAM -->
   <section style="background:var(--white)">
     <div class="container">
       <div class="section-header centered">
@@ -733,81 +692,32 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
         <div class="divider centered"></div>
       </div>
       <div class="pastors-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-
-        <!-- Apostle Akin-Akinyemi -->
         <div class="pastor-card">
-          <div class="pastor-photo">
-            <img src="images/pastor.jpeg" alt="Apostle Akin-Akinyemi" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80'">
-            <div class="pastor-photo-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="pastor-info">
-            <h3>Apostle Akin-Akinyemi</h3>
-            <div class="role">Senior Pastor &amp; Apostolic Oversight</div>
-            <p>A seasoned minister of the Gospel, an Apostle with a prophetic grace, whose love for God is contagious — inspiring young ones on living purposefully. He is the apostolic oversight for The Purpose Place Apostolic Church, a Graduate of Ekiti State University and The ECWA Theological Seminary where he holds a PGD in Theology. He is happily married.</p>
-          </div>
+          <div class="pastor-photo"><img src="images/pastor.jpeg" alt="Apostle Akin-Akinyemi" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80'"><div class="pastor-photo-overlay" aria-hidden="true"></div></div>
+          <div class="pastor-info"><h3>Apostle Akin-Akinyemi</h3><div class="role">Senior Pastor &amp; Apostolic Oversight</div><p>A seasoned minister of the Gospel, an Apostle with a prophetic grace, whose love for God is contagious — inspiring young ones on living purposefully. He is the apostolic oversight for The Purpose Place Apostolic Church, a Graduate of Ekiti State University and The ECWA Theological Seminary where he holds a PGD in Theology. He is happily married.</p></div>
         </div>
-
-        <!-- Blessing Akin-Akinyemi -->
         <div class="pastor-card">
-          <div class="pastor-photo">
-            <img src="images/pastor blessing.jpeg" alt="Blessing Akin-Akinyemi" loading="lazy">
-            <div class="pastor-photo-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="pastor-info">
-            <h3>Blessing Akin-Akinyemi</h3>
-            <div class="role">Lead Pastor</div>
-            <p>A minister of the Gospel who loves to inspire young ones on living purposefully. Her passion gave birth to She-Thrive Initiatives — a God-inspired ministry to raise and equip women to thrive in their sphere of influence. She serves as Lead Pastor alongside her husband.</p>
-          </div>
+          <div class="pastor-photo"><img src="images/pastor blessing.jpeg" alt="Blessing Akin-Akinyemi" loading="lazy"><div class="pastor-photo-overlay" aria-hidden="true"></div></div>
+          <div class="pastor-info"><h3>Blessing Akin-Akinyemi</h3><div class="role">Lead Pastor</div><p>A minister of the Gospel who loves to inspire young ones on living purposefully. Her passion gave birth to She-Thrive Initiatives — a God-inspired ministry to raise and equip women to thrive in their sphere of influence.</p></div>
         </div>
-
-        <!-- Oladipupo Sunday Matthew -->
         <div class="pastor-card">
-          <div class="pastor-photo">
-            <img src="images/pastor sunday.jpeg" alt="Oladipupo Sunday Matthew" loading="lazy">
-            <div class="pastor-photo-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="pastor-info">
-            <h3>Oladipupo Sunday Matthew</h3>
-            <div class="role">Minister </div>
-            <p>A practicing Electrical Engineer by profession and a committed, dedicated worker in the house of God. His mission is to impact people's lives for the expansion of God's kingdom, believing The Purpose Place is an opportunity for people to become all that God has purposed for them.</p>
-          </div>
+          <div class="pastor-photo"><img src="images/pastor sunday.jpeg" alt="Oladipupo Sunday Matthew" loading="lazy"><div class="pastor-photo-overlay" aria-hidden="true"></div></div>
+          <div class="pastor-info"><h3>Oladipupo Sunday Matthew</h3><div class="role">Minister</div><p>A practicing Electrical Engineer by profession and a committed, dedicated worker in the house of God. His mission is to impact people's lives for the expansion of God's kingdom.</p></div>
         </div>
-
-        <!-- Akinrinlola Mayowa -->
         <div class="pastor-card">
-          <div class="pastor-photo">
-            <img src="images/mayowa.jpeg" alt="Akinrinlola Mayowa" loading="lazy">
-            <div class="pastor-photo-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="pastor-info">
-            <h3>Akinrinlola Mayowa</h3>
-            <div class="role">Minister</div>
-            <p>Believes he is called by God to serve actively in the vineyard of God and be relevant to the world. A software developer by profession and a committed, dedicated worker at The Purpose Place. His mission is to impact lives for the expansion of God's kingdom and see the life of God taught and lived in the community.</p>
-          </div>
+          <div class="pastor-photo"><img src="images/mayowa.jpeg" alt="Akinrinlola Mayowa" loading="lazy"><div class="pastor-photo-overlay" aria-hidden="true"></div></div>
+          <div class="pastor-info"><h3>Akinrinlola Mayowa</h3><div class="role">Minister</div><p>Believes he is called by God to serve actively in the vineyard of God and be relevant to the world. A software developer by profession and a committed worker at The Purpose Place.</p></div>
         </div>
-
-        <!-- Awosemo Eniitan Deborah -->
         <div class="pastor-card">
-          <div class="pastor-photo">
-            <img src="images/mini enitan.jpeg" alt="Awosemo Eniitan Deborah" loading="lazy">
-            <div class="pastor-photo-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="pastor-info">
-            <h3>Awosemo Eniitan Deborah</h3>
-            <div class="role">Minister</div>
-            <p>A passionate minister serving at The Purpose Place. Deborah graduated with a Second Class Upper in Linguistics and Nigerian Languages from Ekiti State University and is currently pursuing her Master's degree. With a heart to bring people into their God-given purpose, she combines academic pursuits with ministry — inspiring others through song and God's word. Her vision is to impact lives and ignite purpose.</p>
-          </div>
+          <div class="pastor-photo"><img src="images/mini enitan.jpeg" alt="Awosemo Eniitan Deborah" loading="lazy"><div class="pastor-photo-overlay" aria-hidden="true"></div></div>
+          <div class="pastor-info"><h3>Awosemo Eniitan Deborah</h3><div class="role">Minister</div><p>A passionate minister serving at The Purpose Place. Graduated with a Second Class Upper in Linguistics from Ekiti State University, currently pursuing her Master's degree, inspiring others through song and God's word.</p></div>
         </div>
-
       </div>
     </div>
   </section>
-</div><!-- end about page -->
+</div>
 
-
-<!-- ==============================
-     SERMONS PAGE
-     ============================== -->
+<!-- ==============================  SERMONS  ============================== -->
 <div class="page" id="page-sermons">
   <div class="page-hero">
     <div class="page-hero-bg sermons-hero-bg"></div>
@@ -817,135 +727,124 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       <p>Every sermon is available on our Telegram channel — listen anytime, share freely, download for offline use.</p>
     </div>
   </div>
-
   <section>
     <div class="container">
       <div class="sermons-notice">
-        <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
-        </div>
-        <p><strong>All sermons are hosted exclusively on Telegram.</strong> Click any "Listen on Telegram" button below to be taken directly to that message on our channel. <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" style="color:var(--telegram);font-weight:700">Join the channel →</a></p>
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg></div>
+        <p><strong>All sermons are hosted on Telegram.</strong> Click any "Listen on Telegram" button to go directly to that message. <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" style="color:var(--telegram);font-weight:700">Join the channel →</a></p>
       </div>
 
       <div class="sermons-filter" role="group" aria-label="Filter sermons by series">
         <span style="font-size:.82rem;font-weight:600;color:var(--text-soft)">Filter:</span>
         <button class="filter-btn active" onclick="filterSermons(this,'all')">All Series</button>
         <button class="filter-btn" onclick="filterSermons(this,'faith')">Faith Journey</button>
-        <button class="filter-btn" onclick="filterSermons(this,'relationships')">Relationships</button>
         <button class="filter-btn" onclick="filterSermons(this,'growth')">Spiritual Growth</button>
         <button class="filter-btn" onclick="filterSermons(this,'kingdom')">Kingdom Living</button>
       </div>
 
       <div class="sermons-grid" id="sermons-grid">
+
+        <!-- SERMON 1: Divine Encounters -->
         <div class="sermon-card" data-series="faith">
           <div class="sermon-card-top">
             <div class="sermon-series-badge">Faith Journey</div>
-            <div class="sermon-card-title">Finding Purpose in God's Plan</div>
+            <div class="sermon-card-title">Divine Encounters</div>
             <div class="sermon-card-meta">
               <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>Apostle Akin-Akinyemi</span>
-              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>June 4, 2025</span>
+              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Recent Message</span>
             </div>
           </div>
           <div class="sermon-card-body">
-            <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Jeremiah 29:11</div>
-            <p class="sermon-card-desc">Discover how to align your life with God's unique design and experience true fulfillment. This message unpacks what it means to trust God's plan even in seasons of uncertainty.</p>
-            <a href="https://t.me/thepurposeplaceng/1" target="_blank" rel="noopener" class="sermon-tg-btn">
+            <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>The Word of God</div>
+            <p class="sermon-card-desc">Experience transformative moments when heaven touches earth. This message explores what it means to encounter God personally and how those encounters shape our walk of faith.</p>
+            <a href="https://t.me/thepurposeplaceng/1851" target="_blank" rel="noopener" class="sermon-tg-btn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Listen on Telegram
             </a>
           </div>
         </div>
+
+        <!-- SERMON 2: Spiritual Man -->
         <div class="sermon-card" data-series="growth">
           <div class="sermon-card-top">
             <div class="sermon-series-badge">Spiritual Growth</div>
-            <div class="sermon-card-title">The Power of Prayer</div>
+            <div class="sermon-card-title">Spiritual Man</div>
             <div class="sermon-card-meta">
               <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>Apostle Akin-Akinyemi</span>
-              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>May 28, 2025</span>
+              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Recent Message</span>
             </div>
           </div>
           <div class="sermon-card-body">
-            <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Matthew 6:6–13</div>
-            <p class="sermon-card-desc">A transformative message on developing a powerful, consistent prayer life. Learn how to pray with faith, persistence, and expectation.</p>
-            <a href="https://t.me/thepurposeplaceng/2" target="_blank" rel="noopener" class="sermon-tg-btn">
+            <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>1 Corinthians 2:15</div>
+            <p class="sermon-card-desc">What does it truly mean to be a spiritual man? This message dives deep into what it looks like to be led by the Spirit in every area of life — work, family, and faith.</p>
+            <a href="https://t.me/thepurposeplaceng/1624" target="_blank" rel="noopener" class="sermon-tg-btn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Listen on Telegram
             </a>
           </div>
         </div>
-        <div class="sermon-card" data-series="relationships">
+
+        <!-- SERMON 3: The Art of Hearing -->
+        <div class="sermon-card" data-series="growth">
           <div class="sermon-card-top">
-            <div class="sermon-series-badge">Relationships</div>
-            <div class="sermon-card-title">Living With Grace Every Day</div>
-            <div class="sermon-card-meta">
-              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>Guest Speaker</span>
-              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>May 21, 2025</span>
-            </div>
-          </div>
-          <div class="sermon-card-body">
-            <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Ephesians 4:32</div>
-            <p class="sermon-card-desc">Understanding the depth of God's grace and how to extend that same grace to those around us in marriage, friendship, family, and the workplace.</p>
-            <a href="https://t.me/thepurposeplaceng/3" target="_blank" rel="noopener" class="sermon-tg-btn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
-              Listen on Telegram
-            </a>
-          </div>
-        </div>
-        <div class="sermon-card" data-series="kingdom">
-          <div class="sermon-card-top">
-            <div class="sermon-series-badge">Kingdom Living</div>
-            <div class="sermon-card-title">Walking in Kingdom Authority</div>
+            <div class="sermon-series-badge">Spiritual Growth</div>
+            <div class="sermon-card-title">The Art of Hearing</div>
             <div class="sermon-card-meta">
               <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>Apostle Akin-Akinyemi</span>
-              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>May 14, 2025</span>
+              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Recent Message</span>
             </div>
           </div>
           <div class="sermon-card-body">
-            <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Luke 10:19</div>
-            <p class="sermon-card-desc">Believers are not powerless. This message teaches you to walk in the authority Christ has given every believer — over fear, over sickness, over every situation.</p>
-            <a href="https://t.me/thepurposeplaceng/4" target="_blank" rel="noopener" class="sermon-tg-btn">
+            <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>John 10:27</div>
+            <p class="sermon-card-desc">Hearing God is not a mystery reserved for a few — it is a skill every believer can develop. Learn the art of tuning in to the voice of God amid the noise of everyday life.</p>
+            <a href="https://t.me/thepurposeplaceng/1602" target="_blank" rel="noopener" class="sermon-tg-btn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Listen on Telegram
             </a>
           </div>
         </div>
+
+        <!-- SERMON 4: Help From God -->
         <div class="sermon-card" data-series="faith">
           <div class="sermon-card-top">
             <div class="sermon-series-badge">Faith Journey</div>
-            <div class="sermon-card-title">When Doubt Meets Faith</div>
+            <div class="sermon-card-title">Help From God</div>
             <div class="sermon-card-meta">
               <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>Apostle Akin-Akinyemi</span>
-              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>May 7, 2025</span>
+              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Recent Message</span>
             </div>
           </div>
           <div class="sermon-card-body">
-            <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Mark 9:24</div>
-            <p class="sermon-card-desc">Doubt doesn't disqualify you — it can deepen your faith. An honest and liberating look at what to do when you feel like your faith isn't enough.</p>
-            <a href="https://t.me/thepurposeplaceng/5" target="_blank" rel="noopener" class="sermon-tg-btn">
+            <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Psalm 121:2</div>
+            <p class="sermon-card-desc">No matter what you are facing, there is help available from God. This message brings hope and reassurance that our Helper is always near, always faithful, always more than enough.</p>
+            <a href="https://t.me/thepurposeplaceng/1858" target="_blank" rel="noopener" class="sermon-tg-btn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Listen on Telegram
             </a>
           </div>
         </div>
+
+        <!-- SERMON 5: Growth -->
         <div class="sermon-card" data-series="growth">
           <div class="sermon-card-top">
             <div class="sermon-series-badge">Spiritual Growth</div>
-            <div class="sermon-card-title">The Discipline of Silence</div>
+            <div class="sermon-card-title">Growth</div>
             <div class="sermon-card-meta">
               <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>Apostle Akin-Akinyemi</span>
-              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Apr 30, 2025</span>
+              <span class="sermon-meta-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Recent Message</span>
             </div>
           </div>
           <div class="sermon-card-body">
-            <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>Psalm 46:10</div>
-            <p class="sermon-card-desc">In a world full of noise, learning to be still before God is one of the most radical acts of faith. This message teaches the ancient discipline of holy silence and solitude.</p>
-            <a href="https://t.me/thepurposeplaceng/6" target="_blank" rel="noopener" class="sermon-tg-btn">
+            <div class="sermon-scripture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>2 Peter 3:18</div>
+            <p class="sermon-card-desc">Growth is not optional for the believer — it is God's design. This message challenges you to grow intentionally in grace, knowledge, character, and purpose to fulfil your calling.</p>
+            <a href="https://t.me/thepurposeplaceng/1857" target="_blank" rel="noopener" class="sermon-tg-btn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Listen on Telegram
             </a>
           </div>
         </div>
-      </div>
+
+      </div><!-- /.sermons-grid -->
 
       <div class="sermon-archive-block">
         <p class="label-gold">100+ Messages Available</p>
@@ -957,12 +856,9 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       </div>
     </div>
   </section>
-</div><!-- end sermons page -->
+</div>
 
-
-<!-- ==============================
-     EVENTS PAGE
-     ============================== -->
+<!-- ==============================  EVENTS  ============================== -->
 <div class="page" id="page-events">
   <div class="page-hero">
     <div class="page-hero-bg events-hero-bg"></div>
@@ -976,82 +872,27 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
     <div class="container">
       <div class="events-grid">
         <div class="event-card">
-          <div class="event-img">
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Youth Summer Camp" loading="lazy">
-            <div class="event-date-badge"><div class="d">15</div><div class="m">Jul</div></div>
-            <div class="event-category">Youth</div>
-          </div>
-          <div class="event-body">
-            <h3 class="event-title">Youth Summer Camp 2025</h3>
-            <p class="event-desc">Three days of worship, games, discipleship sessions, and spiritual renewal for ages 13–25. A life-changing experience away from the noise of the city.</p>
-            <div class="event-details-row">
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>July 15–17 · 9:00 AM – 5:00 PM</div>
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>The Purpose Place, Ado Ekiti</div>
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>Ages 13–25 · Limited spots</div>
-            </div>
-            <button onclick="showToast('Registration sent! Check your email to confirm.')" class="btn btn-navy" style="width:100%">Register Now</button>
-          </div>
+          <div class="event-img"><img src="images/image9.jpeg" alt="Youth Summer Camp" loading="lazy"><div class="event-date-badge"><div class="d">16</div><div class="m">April</div></div><div class="event-category"></div></div>
+          <div class="event-body"><h3 class="event-title">Kingdom Life Conference 2026</h3><p class="event-desc">Three days of worship, discipleship sessions, and spiritual renewal.</p><div class="event-details-row"><div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>April 16–18 – 4:30 PM</div><div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>The Purpose Place, Ado Ekiti</div></div><button onclick="showToast('Registration sent!')" class="btn btn-navy" style="width:100%">Register Now</button></div>
         </div>
         <div class="event-card">
-          <div class="event-img">
-            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80" alt="Marriage and Family Conference" loading="lazy">
-            <div class="event-date-badge"><div class="d">22</div><div class="m">Jul</div></div>
-            <div class="event-category">Family</div>
-          </div>
-          <div class="event-body">
-            <h3 class="event-title">Marriage &amp; Family Conference</h3>
-            <p class="event-desc">Strengthen your marriage through biblical principles, practical workshops, and honest conversations. Couples and engaged partners are warmly welcome.</p>
-            <div class="event-details-row">
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>July 22 · 6:00 PM – 9:00 PM</div>
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Main Auditorium, The Purpose Place</div>
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>Free entry — couples encouraged</div>
-            </div>
-            <button onclick="showToast('You\'re registered for Marriage Conference!')" class="btn btn-navy" style="width:100%">Register Now</button>
-          </div>
+          <div class="event-img"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80" alt="Marriage Conference" loading="lazy"><div class="event-date-badge"><div class="d">22</div><div class="m">Jul</div></div><div class="event-category">Family</div></div>
+          <div class="event-body"><h3 class="event-title">Marriage &amp; Family Conference</h3><p class="event-desc">Strengthen your marriage through biblical principles, practical workshops, and honest conversations.</p><div class="event-details-row"><div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>July 22 · 6:00 PM – 9:00 PM</div><div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Main Auditorium, The Purpose Place</div></div><button onclick="showToast('Registered for Marriage Conference!')" class="btn btn-navy" style="width:100%">Register Now</button></div>
         </div>
         <div class="event-card">
-          <div class="event-img">
-            <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80" alt="Community Outreach Day" loading="lazy">
-            <div class="event-date-badge"><div class="d">30</div><div class="m">Jul</div></div>
-            <div class="event-category">Outreach</div>
-          </div>
-          <div class="event-body">
-            <h3 class="event-title">Community Outreach Day</h3>
-            <p class="event-desc">Serving our city through food distribution, free medical check-ups, prayer ministry, and fellowship. Come be the hands and feet of Jesus.</p>
-            <div class="event-details-row">
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>July 30 · 10:00 AM – 2:00 PM</div>
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Ado Ekiti</div>
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>Volunteers welcome — all ages</div>
-            </div>
-            <button onclick="showToast('You\'ve signed up to volunteer! See you there.')" class="btn btn-gold" style="width:100%">Volunteer Today</button>
-          </div>
+          <div class="event-img"><img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80" alt="Community Outreach" loading="lazy"><div class="event-date-badge"><div class="d">30</div><div class="m">Jul</div></div><div class="event-category">Outreach</div></div>
+          <div class="event-body"><h3 class="event-title">Community Outreach Day</h3><p class="event-desc">Serving our city through food distribution, free medical check-ups, prayer ministry, and fellowship.</p><div class="event-details-row"><div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>July 30 · 10:00 AM – 2:00 PM</div><div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Ado Ekiti</div></div><button onclick="showToast('Signed up to volunteer!')" class="btn btn-gold" style="width:100%">Volunteer Today</button></div>
         </div>
         <div class="event-card">
-          <div class="event-img">
-            <img src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=600&q=80" alt="All-Night Prayer and Worship" loading="lazy">
-            <div class="event-date-badge"><div class="d">5</div><div class="m">Aug</div></div>
-            <div class="event-category">Prayer</div>
-          </div>
-          <div class="event-body">
-            <h3 class="event-title">All-Night Prayer &amp; Worship</h3>
-            <p class="event-desc">An entire night dedicated to seeking God's face through worship, intercession, and communion. Come encounter the presence of God in a powerful corporate setting.</p>
-            <div class="event-details-row">
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>Aug 5, 10:00 PM – Aug 6, 5:00 AM</div>
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>The Purpose Place Main Auditorium</div>
-              <div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>Free — Open to everyone</div>
-            </div>
-            <button onclick="showToast('You\'re registered for Prayer Night!')" class="btn btn-navy" style="width:100%">RSVP Now</button>
-          </div>
+          <div class="event-img"><img src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=600&q=80" alt="Prayer Night" loading="lazy"><div class="event-date-badge"><div class="d">5</div><div class="m">Aug</div></div><div class="event-category">Prayer</div></div>
+          <div class="event-body"><h3 class="event-title">All-Night Prayer &amp; Worship</h3><p class="event-desc">An entire night dedicated to seeking God's face through worship, intercession, and communion.</p><div class="event-details-row"><div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>Aug 5, 10:00 PM – Aug 6, 5:00 AM</div><div class="event-detail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>The Purpose Place Main Auditorium</div></div><button onclick="showToast('Registered for Prayer Night!')" class="btn btn-navy" style="width:100%">RSVP Now</button></div>
         </div>
       </div>
     </div>
   </section>
-</div><!-- end events page -->
+</div>
 
-
-<!-- ==============================
-     GALLERY PAGE
-     ============================== -->
+<!-- ==============================  GALLERY  ============================== -->
 <div class="page" id="page-gallery">
   <div class="page-hero">
     <div class="page-hero-bg gallery-hero-bg"></div>
@@ -1061,82 +902,36 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       <p>A glimpse into the life and community of The Purpose Place Apostolic Church.</p>
     </div>
   </div>
-
   <section>
     <div class="container">
-      <!-- Gallery grid — replace src values with your actual uploaded images -->
       <div class="gallery-grid" id="gallery-grid">
-
-        <div class="gallery-item">
-          <img src="images/gallery1.jpg" alt="Sunday Worship Service" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80'">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Sunday Worship Service</span></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/gallery2.jpg" alt="Prayer Meeting" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=600&q=80'">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Prayer Meeting</span></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/gallery3.jpg" alt="Community Outreach" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80'">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Community Outreach</span></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/gallery4.jpg" alt="Youth Fellowship" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80'">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Youth Fellowship</span></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/gallery5.jpg" alt="Bible Study" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1438032005730-c779502df39b?w=600&q=80'">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Bible Study</span></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/gallery6.jpg" alt="Church Family" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600&q=80'">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Church Family</span></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/gallery7.jpg" alt="Worship Night" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1472552944129-b035e9ea3744?w=600&q=80'">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Worship Night</span></div>
-        </div>
-
-        <div class="gallery-item">
-          <img src="images/gallery8.jpg" alt="Discipleship Program" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1438232992991-995b671e4b8a?w=600&q=80'">
-          <div class="gallery-item-overlay"><span class="gallery-item-caption">Discipleship Program</span></div>
-        </div>
-
+        <div class="gallery-item"><img src="images/image1.jpeg" alt="" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80'"><div class="gallery-item-overlay"><span class="gallery-item-caption">Sunday Worship Service</span></div></div>
+        <div class="gallery-item"><img src="images/image2.jpeg" alt="" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?w=600&q=80'"><div class="gallery-item-overlay"><span class="gallery-item-caption">Prayer Meeting</span></div></div>
+        <div class="gallery-item"><img src="images/image3.jpeg" alt="" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80'"><div class="gallery-item-overlay"><span class="gallery-item-caption">Community Outreach</span></div></div>
+        <div class="gallery-item"><img src="images/image4.jpeg" alt="" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80'"><div class="gallery-item-overlay"><span class="gallery-item-caption">Youth Fellowship</span></div></div>
+        <div class="gallery-item"><img src="images/image5.jpeg" alt="" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1438032005730-c779502df39b?w=600&q=80'"><div class="gallery-item-overlay"><span class="gallery-item-caption">Bible Study</span></div></div>
+        <div class="gallery-item"><img src="images/image6.jpeg" alt="" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600&q=80'"><div class="gallery-item-overlay"><span class="gallery-item-caption">Church Family</span></div></div>
+        <div class="gallery-item"><img src="images/image7.jpeg" alt="" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1472552944129-b035e9ea3744?w=600&q=80'"><div class="gallery-item-overlay"><span class="gallery-item-caption">Worship Night</span></div></div>
+        <div class="gallery-item"><img src="images/image8.jpeg" alt="" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1438232992991-995b671e4b8a?w=600&q=80'"><div class="gallery-item-overlay"><span class="gallery-item-caption">Discipleship Program</span></div></div>
       </div>
-<!-- 
-      <div class="gallery-upload-card">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-        <h4>Add Your Photos</h4>
-        <p>To add pictures to the gallery, place your image files in an <strong>images/</strong> folder alongside this HTML file and name them <strong>gallery1.jpg, gallery2.jpg</strong> etc. You can add as many as you like by duplicating a gallery item block.</p>
-        <button onclick="showToast('To add photos: place images in the images/ folder named gallery1.jpg, gallery2.jpg etc.')" class="btn btn-gold">How to Upload Photos</button>
-      </div>
-    </div> -->
+    </div>
   </section>
-</div><!-- end gallery page -->
+</div>
 
-
-<!-- ==============================
-     LIVE STREAM PAGE
-     ============================== -->
+<!-- ==============================  LIVE  ============================== -->
 <div class="page" id="page-live">
   <div class="page-hero">
     <div class="page-hero-bg live-hero-bg"></div>
     <div class="container">
-      <div class="live-dot" role="status" aria-label="Live stream available">● LIVE STREAM</div>
+      <div class="live-dot" role="status">● LIVE STREAM</div>
       <h1 class="display">Watch Live Worship</h1>
       <p>Join our Sunday services from anywhere in the world. No distance, no barrier.</p>
     </div>
   </div>
-
   <div class="countdown-section">
     <div class="container">
       <div class="countdown-title">Next Service In:</div>
-      <div class="countdown-grid" aria-live="polite" aria-label="Countdown to next service">
+      <div class="countdown-grid" aria-live="polite">
         <div class="countdown-item"><span class="count" id="cd-days">00</span><div class="unit">Days</div></div>
         <div class="countdown-sep" aria-hidden="true">:</div>
         <div class="countdown-item"><span class="count" id="cd-hours">00</span><div class="unit">Hours</div></div>
@@ -1147,7 +942,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       </div>
     </div>
   </div>
-
   <section>
     <div class="container">
       <div class="stream-box">
@@ -1162,6 +956,11 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
               <svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:var(--navy)"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
               Set Reminder
             </button>
+            <!-- Updated: Watch on YouTube -->
+            <a href="https://youtube.com/@akin_akinyemi?si=0MOc-B9uE1iZl_FN" target="_blank" rel="noopener" class="btn" style="background:#FF0000;color:#fff">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:white"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+              Watch on YouTube
+            </a>
             <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" class="btn btn-telegram">
               <svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>
               Watch on Telegram
@@ -1171,17 +970,14 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
         <div class="stream-info-bar">
           <div class="info"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Every Sunday · 10:00 AM</div>
           <div class="info"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>Tuesday Meeting · 5:30 PM</div>
-          <div class="info"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>Sermons on Telegram after service</div>
+          <div class="info"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg>Sermons uploaded to Telegram after service</div>
         </div>
       </div>
     </div>
   </section>
-</div><!-- end live page -->
+</div>
 
-
-<!-- ==============================
-     GIVING PAGE
-     ============================== -->
+<!-- ==============================  GIVING  ============================== -->
 <div class="page" id="page-giving">
   <div class="page-hero">
     <div class="page-hero-bg giving-hero-bg"></div>
@@ -1191,7 +987,6 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       <p>Your generosity powers transformation. Every gift, large or small, changes lives.</p>
     </div>
   </div>
-
   <section>
     <div class="container">
       <div class="giving-layout">
@@ -1206,69 +1001,41 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           <form onsubmit="handleGiving(event)" novalidate>
             <div class="form-group">
               <label>Choose Amount (₦)</label>
-              <div class="amount-pills" id="amount-pills" role="group" aria-label="Select donation amount">
-                <div class="amount-pill" onclick="selectAmount(this)" role="button" tabindex="0">1,000</div>
-                <div class="amount-pill" onclick="selectAmount(this)" role="button" tabindex="0">5,000</div>
-                <div class="amount-pill active" onclick="selectAmount(this)" role="button" tabindex="0">10,000</div>
-                <div class="amount-pill" onclick="selectAmount(this)" role="button" tabindex="0">20,000</div>
-                <div class="amount-pill" onclick="selectAmount(this)" role="button" tabindex="0">50,000</div>
+              <div class="amount-pills" id="amount-pills">
+                <div class="amount-pill" onclick="selectAmount(this)">1,000</div>
+                <div class="amount-pill" onclick="selectAmount(this)">5,000</div>
+                <div class="amount-pill active" onclick="selectAmount(this)">10,000</div>
+                <div class="amount-pill" onclick="selectAmount(this)">20,000</div>
+                <div class="amount-pill" onclick="selectAmount(this)">50,000</div>
               </div>
               <input type="number" placeholder="Or enter custom amount" id="custom-amount" min="1">
             </div>
-            <div class="form-group">
-              <label for="give-name">Full Name</label>
-              <input type="text" id="give-name" placeholder="Your full name" required>
-            </div>
-            <div class="form-group">
-              <label for="give-email">Email Address</label>
-              <input type="email" id="give-email" placeholder="your@email.com" required>
-            </div>
-            <div class="form-group">
-              <label for="give-phone">Phone Number</label>
-              <input type="tel" id="give-phone" placeholder="+234 XX XXXX XXXX">
-            </div>
+            <div class="form-group"><label for="give-name">Full Name</label><input type="text" id="give-name" placeholder="Your full name" required></div>
+            <div class="form-group"><label for="give-email">Email Address</label><input type="email" id="give-email" placeholder="your@email.com" required></div>
+            <div class="form-group"><label for="give-phone">Phone Number</label><input type="tel" id="give-phone" placeholder="+234 XX XXXX XXXX"></div>
             <button type="submit" class="btn btn-gold" style="width:100%;padding:15px">
               <svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:var(--navy)"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
               Proceed to Pay Securely
             </button>
-            <div class="secure-note">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
-              256-bit SSL encrypted · Secure Payment
-            </div>
+            <div class="secure-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>256-bit SSL encrypted · Secure Payment</div>
           </form>
         </div>
-
         <div class="giving-sidebar">
-          <!-- BANK DETAILS -->
           <div class="alt-giving-card">
             <h4>🏦 Bank Transfer — GTBank</h4>
             <div class="bank-detail-row">
-              <div class="bank-detail">
-                <div class="bank-label">Naira Account</div>
-                <div class="bank-num">0728166827</div>
-                <div class="bank-type">GTBank · Nigerian Naira (₦)</div>
-              </div>
-              <div class="bank-detail">
-                <div class="bank-label">Dollar Account</div>
-                <div class="bank-num">0728272290</div>
-                <div class="bank-type">GTBank · US Dollar ($)</div>
-              </div>
+              <div class="bank-detail"><div class="bank-label">Naira Account</div><div class="bank-num">0728166827</div><div class="bank-type">GTBank · Nigerian Naira (₦)</div></div>
+              <div class="bank-detail"><div class="bank-label">Dollar Account</div><div class="bank-num">0728272290</div><div class="bank-type">GTBank · US Dollar ($)</div></div>
             </div>
             <div class="swift-row">SWIFT / BIC Code: <strong>GTBINGLAXXX</strong></div>
-            <p style="font-size:.75rem;color:rgba(255,255,255,.55);margin-top:10px;line-height:1.6">Account Name: The Purpose Place Apostolic Church. After transfer, please send proof of payment via WhatsApp to <strong style="color:var(--gold-light)">09123924233</strong>.</p>
+            <p style="font-size:.75rem;color:rgba(255,255,255,.55);margin-top:10px;line-height:1.6">Account Name: The Purpose Place Apostolic Church. After transfer, send proof via WhatsApp to <strong style="color:var(--gold-light)">09123924233</strong>.</p>
           </div>
-
           <div class="progress-card">
             <h4>Monthly Giving Goal</h4>
             <p class="subtitle">Building Fund Campaign</p>
-            <div class="progress-bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label="68% of goal reached"><div class="progress-fill" style="width:68%"></div></div>
-            <div class="progress-labels">
-              <span class="raised">68% reached</span>
-              <span>Goal in progress</span>
-            </div>
-            <p style="font-size:.78rem;color:var(--text-soft);margin-top:10px;line-height:1.6">Thank you to every generous giver. Together we're building a home for God's people.</p>
+            <div class="progress-bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" style="width:68%"></div></div>
+            <div class="progress-labels"><span class="raised">68% reached</span><span>Goal in progress</span></div>
           </div>
-
           <div class="why-give">
             <h4>Why Give?</h4>
             <div class="why-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><p>Fund life-changing discipleship programs and Sunday services</p></div>
@@ -1280,12 +1047,9 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
       </div>
     </div>
   </section>
-</div><!-- end giving page -->
+</div>
 
-
-<!-- ==============================
-     CONTACT PAGE
-     ============================== -->
+<!-- ==============================  CONTACT  ============================== -->
 <div class="page" id="page-contact">
   <div class="page-hero">
     <div class="page-hero-bg contact-hero-bg"></div>
@@ -1301,33 +1065,15 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
         <div class="contact-info">
           <div class="contact-info-card">
             <h4>Find Us</h4>
-            <div class="contact-item">
-              <div class="contact-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-              <div class="contact-item-text"><div class="label-sm">Address</div><p>Beacon Behind AB Hotel<br>Adebayo, Ado Ekiti State</p></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
-              <div class="contact-item-text"><div class="label-sm">Phone</div><p><a href="tel:09123924233">09123924233</a></p></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-              <div class="contact-item-text"><div class="label-sm">Email</div><p><a href="mailto:thepurposeplace2022@gmail.com">thepurposeplace2022@gmail.com</a></p></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
-              <div class="contact-item-text"><div class="label-sm">Service Hours</div><p>Sunday: 10:00 AM<br>Tuesday: 5:30 PM</p></div>
-            </div>
+            <div class="contact-item"><div class="contact-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><div class="contact-item-text"><div class="label-sm">Address</div><p>Beacon Behind AB Hotel<br>Adebayo, Ado Ekiti State</p></div></div>
+            <div class="contact-item"><div class="contact-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><div class="contact-item-text"><div class="label-sm">Phone</div><p><a href="tel:09123924233">09123924233</a></p></div></div>
+            <div class="contact-item"><div class="contact-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><div class="contact-item-text"><div class="label-sm">Email</div><p><a href="mailto:thepurposeplace2022@gmail.com">thepurposeplace2022@gmail.com</a></p></div></div>
+            <div class="contact-item"><div class="contact-item-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div><div class="contact-item-text"><div class="label-sm">Service Hours</div><p>Sunday: 10:00 AM<br>Tuesday: 5:30 PM</p></div></div>
           </div>
-          <div class="map-placeholder" role="img" aria-label="Map showing Beacon Behind AB Hotel, Adebayo, Ado Ekiti">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <span>Beacon Behind AB Hotel, Adebayo, Ado Ekiti</span>
-          </div>
+          <div class="map-placeholder" role="img" aria-label="Map showing location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg><span>Beacon Behind AB Hotel, Adebayo, Ado Ekiti</span></div>
           <div class="contact-info-card">
             <h4>Connect on Telegram</h4>
-            <div class="contact-item">
-              <div class="contact-item-icon" style="background:rgba(34,158,217,.1);border-color:rgba(34,158,217,.2)" aria-hidden="true"><svg viewBox="0 0 24 24" style="fill:var(--telegram)"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg></div>
-              <div class="contact-item-text"><div class="label-sm" style="color:var(--telegram)">Telegram Channel</div><p><a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" style="color:var(--telegram)">@thepurposeplaceng</a></p></div>
-            </div>
+            <div class="contact-item"><div class="contact-item-icon" style="background:rgba(34,158,217,.1);border-color:rgba(34,158,217,.2)" aria-hidden="true"><svg viewBox="0 0 24 24" style="fill:var(--telegram)"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg></div><div class="contact-item-text"><div class="label-sm" style="color:var(--telegram)">Telegram Channel</div><p><a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" style="color:var(--telegram)">@thepurposeplaceng</a></p></div></div>
           </div>
         </div>
         <div class="contact-form-card">
@@ -1338,43 +1084,25 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
               <div class="form-group"><label for="c-lname">Last Name</label><input type="text" id="c-lname" placeholder="Last name" required></div>
             </div>
             <div class="form-group"><label for="c-email">Email Address</label><input type="email" id="c-email" placeholder="your@email.com" required></div>
-            <div class="form-group"><label for="c-subject">Subject</label>
-              <select id="c-subject">
-                <option>General Enquiry</option>
-                <option>Prayer Request</option>
-                <option>Membership</option>
-                <option>Events</option>
-                <option>Giving &amp; Donations</option>
-                <option>Pastoral Counselling</option>
-              </select>
-            </div>
-            <div class="form-group"><label for="c-msg">Message</label><textarea id="c-msg" placeholder="How can we help you? Share your message or prayer request here..." required rows="5"></textarea></div>
-            <button type="submit" class="btn btn-navy" style="width:100%;padding:15px">
-              <svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-              Send Message
-            </button>
+            <div class="form-group"><label for="c-subject">Subject</label><select id="c-subject"><option>General Enquiry</option><option>Prayer Request</option><option>Membership</option><option>Events</option><option>Giving &amp; Donations</option><option>Pastoral Counselling</option></select></div>
+            <div class="form-group"><label for="c-msg">Message</label><textarea id="c-msg" placeholder="How can we help you?" required rows="5"></textarea></div>
+            <button type="submit" class="btn btn-navy" style="width:100%;padding:15px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>Send Message</button>
           </form>
-          <div class="success-msg" id="contact-success" role="status">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            Thank you! Your message has been received. We'll respond within 24–48 hours.
-          </div>
+          <div class="success-msg" id="contact-success" role="status"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Thank you! Your message has been received. We'll respond within 24–48 hours.</div>
         </div>
       </div>
     </div>
   </section>
-</div><!-- end contact page -->
+</div>
 
-
-<!-- ==============================
-     JOIN PAGE
-     ============================== -->
+<!-- ==============================  JOIN  ============================== -->
 <div class="page" id="page-join">
   <div class="page-hero">
     <div class="page-hero-bg join-hero-bg"></div>
     <div class="container">
       <div class="badge" style="background:rgba(200,169,110,.15);color:var(--gold-light);border-color:rgba(200,169,110,.2)">Community</div>
       <h1 class="display" style="margin-top:12px">You Belong Here</h1>
-      <p>Take your next step — become a member, join a group, and be part of something greater than yourself.</p>
+      <p>Take your next step — become a member, join a group, and be part of something greater.</p>
     </div>
   </div>
   <section>
@@ -1391,34 +1119,10 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
             <div class="form-group"><label for="j-email">Email Address</label><input type="email" id="j-email" placeholder="your@email.com" required></div>
             <div class="form-group"><label for="j-phone">Phone Number</label><input type="tel" id="j-phone" placeholder="+234 XX XXXX XXXX" required></div>
             <div class="form-group"><label for="j-dob">Date of Birth</label><input type="date" id="j-dob"></div>
-            <div class="form-group">
-              <label for="j-hear">How did you hear about us?</label>
-              <select id="j-hear">
-                <option>Telegram</option>
-                <option>Friend / Family</option>
-                <option>Social Media</option>
-                <option>Google Search</option>
-                <option>I attend already</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="j-interest">Your Interest / Ministry</label>
-              <select id="j-interest">
-                <option>General Membership</option>
-                <option>Youth Ministry</option>
-                <option>Worship Team</option>
-                <option>Prayer Ministry</option>
-                <option>Children's Church</option>
-                <option>Missions &amp; Outreach</option>
-                <option>Media &amp; Tech</option>
-              </select>
-            </div>
+            <div class="form-group"><label for="j-hear">How did you hear about us?</label><select id="j-hear"><option>Telegram</option><option>Friend / Family</option><option>Social Media</option><option>Google Search</option><option>I attend already</option><option>Other</option></select></div>
+            <div class="form-group"><label for="j-interest">Your Interest / Ministry</label><select id="j-interest"><option>General Membership</option><option>Youth Ministry</option><option>Worship Team</option><option>Prayer Ministry</option><option>Children's Church</option><option>Missions &amp; Outreach</option><option>Media &amp; Tech</option></select></div>
             <div class="form-group"><label for="j-intro">Brief Introduction (optional)</label><textarea id="j-intro" placeholder="Tell us a little about yourself..." rows="3"></textarea></div>
-            <button type="submit" class="btn btn-gold" style="width:100%;padding:15px">
-              <svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:var(--navy)"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              Submit Membership Request
-            </button>
+            <button type="submit" class="btn btn-gold" style="width:100%;padding:15px"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:17px;height:17px;fill:var(--navy)"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>Submit Membership Request</button>
           </form>
         </div>
         <div class="community-cards">
@@ -1426,62 +1130,46 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
           <p class="community-intro-p">Stay connected between Sundays. Receive sermons, updates, and community content on your favourite platforms.</p>
           <div class="community-card">
             <div class="cc-icon tg-icon-bg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg></div>
-            <div>
-              <h4>Telegram Channel</h4>
-              <p>All sermons, devotionals, and church updates — delivered instantly. Download messages for offline use.</p>
-              <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" class="btn btn-telegram btn-sm">Join on Telegram</a>
-            </div>
+            <div><h4>Telegram Channel</h4><p>All sermons, devotionals, and church updates — delivered instantly.</p><a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" class="btn btn-telegram btn-sm">Join on Telegram</a></div>
           </div>
           <div class="community-card">
             <div class="cc-icon fb-icon-bg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div>
-            <div>
-              <h4>Facebook Page</h4>
-              <p>Like our page to receive event announcements, live stream notifications, and community highlights.</p>
-              <button onclick="showToast('Opening Facebook...')" class="btn btn-ghost btn-sm">Follow on Facebook</button>
-            </div>
+            <div><h4>Facebook Page</h4><p>Like our page for event announcements and live stream notifications.</p><button onclick="showToast('Opening Facebook...')" class="btn btn-ghost btn-sm">Follow on Facebook</button></div>
           </div>
           <div class="community-card">
             <div class="cc-icon wa-icon-bg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-            <div>
-              <h4>WhatsApp Group</h4>
-              <p>Join our WhatsApp prayer and fellowship group for daily devotionals and community connection.</p>
-              <a href="https://wa.me/2349123924233" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Join WhatsApp Group</a>
-            </div>
+            <div><h4>WhatsApp Group</h4><p>Join our WhatsApp prayer and fellowship group for daily devotionals.</p><a href="https://wa.me/2349123924233" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Join WhatsApp Group</a></div>
           </div>
         </div>
       </div>
     </div>
   </section>
-</div><!-- end join page -->
-
+</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="footer-logo">
-          <div class="footer-logo-mark" aria-hidden="true">T</div>
-          <div class="footer-logo-text">The Purpose <span>Place</span></div>
-        </div>
-        <p>Raising and equipping men for purposeful living through faith, hope, and love. A Christ-centered community based in Ado Ekiti — your life, your family, your community can all be changed by the power of the Gospel.</p>
-        <div class="social-row" role="list">
-          <a class="social-btn" href="#" title="Facebook" role="listitem"><svg viewBox="0 0 24 24" aria-label="Facebook"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-          <a class="social-btn" href="#" title="Instagram" role="listitem"><svg viewBox="0 0 24 24" aria-label="Instagram"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-          <a class="social-btn" href="#" title="YouTube" role="listitem"><svg viewBox="0 0 24 24" aria-label="YouTube"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
-          <a class="social-btn" href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" title="Telegram" role="listitem"><svg viewBox="0 0 24 24" aria-label="Telegram"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg></a>
+        <div class="footer-logo"><div class="footer-logo-mark" aria-hidden="true">T</div><div class="footer-logo-text">The Purpose <span>Place</span></div></div>
+        <p>Raising and equipping men for purposeful living through faith, hope, and love. A Christ-centered community based in Ado Ekiti.</p>
+        <div class="social-row">
+          <a class="social-btn" href="#" title="Facebook"><svg viewBox="0 0 24 24" aria-label="Facebook"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a class="social-btn" href="#" title="Instagram"><svg viewBox="0 0 24 24" aria-label="Instagram"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a class="social-btn" href="https://youtube.com/@akin_akinyemi?si=0MOc-B9uE1iZl_FN" target="_blank" rel="noopener" title="YouTube"><svg viewBox="0 0 24 24" aria-label="YouTube"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+          <a class="social-btn" href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" title="Telegram"><svg viewBox="0 0 24 24" aria-label="Telegram"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.012 9.486c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.08 14.42l-2.948-.924c-.64-.203-.653-.64.136-.948l11.527-4.447c.533-.194 1.001.13.767.147z"/></svg></a>
         </div>
       </div>
       <div class="footer-col">
         <h4>Quick Links</h4>
         <a onclick="showPage('home')">Home</a>
         <a onclick="showPage('about')">About Us</a>
-        <a onclick="showPage('sermons')">Sermons</a>
-        <a onclick="showPage('events')">Events</a>
         <a onclick="showPage('gallery')">Gallery</a>
         <a onclick="showPage('live')">Live Stream</a>
         <a onclick="showPage('giving')">Give</a>
         <a onclick="showPage('contact')">Contact</a>
+        <a onclick="showPage('sermons')">Sermons</a>
+        <a onclick="showPage('events')">Events</a>
         <a onclick="showPage('join')">Join Us</a>
       </div>
       <div class="footer-col">
@@ -1502,10 +1190,10 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
             @thepurposeplaceng
           </a>
         </div>
-        <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener" style="margin-top:12px">📢 Sermons Channel</a>
+        <a href="https://youtube.com/@akin_akinyemi?si=0MOc-B9uE1iZl_FN" target="_blank" rel="noopener">▶️ YouTube Channel</a>
+        <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener">📢 Sermons Channel</a>
         <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener">🙏 Prayer Group</a>
-        <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener">👶 Youth Group</a>
-        <a href="https://t.me/thepurposeplaceng" target="_blank" rel="noopener">💝 Giving Bot</a>
+        <a href="https://wa.me/2349123924233" target="_blank" rel="noopener">💬 WhatsApp Group</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1516,169 +1204,25 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
 </footer>
 
 <script>
-var currentPage = 'home';
-var countdownInterval = null;
-var mobileMenuOpen = false;
-
-function showPage(page) {
-  if (page === currentPage && document.getElementById('page-' + page)) {
-    window.scrollTo({top:0,behavior:'smooth'});
-    return;
-  }
-  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('active'); });
-  var el = document.getElementById('page-' + page);
-  if (!el) return;
-  el.classList.add('active');
-  currentPage = page;
-  document.querySelectorAll('.nav-link').forEach(function(l){
-    var dp = l.getAttribute('data-page');
-    l.classList.toggle('active', dp === page);
-  });
-  window.scrollTo({top:0,behavior:'instant'});
-  if (page === 'live') { startCountdown(); } else { clearInterval(countdownInterval); countdownInterval = null; }
-}
-
-function toggleMobileMenu() {
-  mobileMenuOpen = !mobileMenuOpen;
-  var menu = document.getElementById('mobileNav');
-  var btn = document.getElementById('hamburger');
-  menu.classList.toggle('open', mobileMenuOpen);
-  btn.classList.toggle('open', mobileMenuOpen);
-  btn.setAttribute('aria-expanded', String(mobileMenuOpen));
-  document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
-}
-
-function closeMobileMenu() { if (mobileMenuOpen) toggleMobileMenu(); }
-
-window.addEventListener('scroll', function() {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-}, {passive:true});
-
-var toastTimer = null;
-function showToast(msg) {
-  var t = document.getElementById('toast');
-  var tm = document.getElementById('toast-msg');
-  tm.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 3800);
-}
-
-function filterSermons(btn, series) {
-  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
-  btn.classList.add('active');
-  document.querySelectorAll('.sermon-card').forEach(function(card){
-    card.style.display = (series === 'all' || card.dataset.series === series) ? '' : 'none';
-  });
-}
-
-function selectAmount(el) {
-  document.querySelectorAll('.amount-pill').forEach(function(p){ p.classList.remove('active'); });
-  el.classList.add('active');
-  var custom = document.getElementById('custom-amount');
-  if (custom) custom.value = '';
-}
-
-document.addEventListener('keydown', function(e) {
-  if (e.target.classList.contains('amount-pill') && (e.key === 'Enter' || e.key === ' ')) {
-    e.preventDefault(); selectAmount(e.target);
-  }
-});
-
-function selectGivingType(el) {
-  document.querySelectorAll('.giving-type-btn').forEach(function(b){ b.classList.remove('active'); });
-  el.classList.add('active');
-}
-
-function handleGiving(e) {
-  e.preventDefault();
-  showToast('Thank you for your generous gift! 🙏 Please complete your bank transfer.');
-  e.target.reset();
-  var pills = document.querySelectorAll('.amount-pill');
-  if (pills[2]) selectAmount(pills[2]);
-}
-
-function handleContact(e) {
-  e.preventDefault();
-  var s = document.getElementById('contact-success');
-  if (s) s.classList.add('show');
-  e.target.reset();
-  showToast("Message sent! We'll respond within 24–48 hours.");
-  setTimeout(function(){ if (s) s.classList.remove('show'); }, 7000);
-}
-
-function handleJoin(e) {
-  e.preventDefault();
-  showToast('Welcome to The Purpose Place! 🎉 Check your email for next steps.');
-  e.target.reset();
-}
-
-function startCountdown() {
-  clearInterval(countdownInterval);
-  function getNextSunday10am() {
-    var now = new Date();
-    var next = new Date(now);
-    var day = now.getDay();
-    var daysUntil = day === 0 ? 0 : 7 - day;
-    next.setDate(now.getDate() + daysUntil);
-    next.setHours(10, 0, 0, 0);
-    if (day === 0 && now >= next) { next.setDate(next.getDate() + 7); }
-    return next;
-  }
-  function pad(n) { return String(n).padStart(2, '0'); }
-  function update() {
-    var now = new Date();
-    var target = getNextSunday10am();
-    var diff = Math.max(0, target - now);
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor((diff % 86400000) / 3600000);
-    var m = Math.floor((diff % 3600000) / 60000);
-    var s = Math.floor((diff % 60000) / 1000);
-    var el = { 'd':document.getElementById('cd-days'), 'h':document.getElementById('cd-hours'), 'm':document.getElementById('cd-mins'), 's':document.getElementById('cd-secs') };
-    if (el.d) el.d.textContent = pad(d);
-    if (el.h) el.h.textContent = pad(h);
-    if (el.m) el.m.textContent = pad(m);
-    if (el.s) el.s.textContent = pad(s);
-  }
-  update();
-  countdownInterval = setInterval(update, 1000);
-}
-
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && mobileMenuOpen) { closeMobileMenu(); }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('[data-page]').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      var page = this.getAttribute('data-page');
-      showPage(page);
-      closeMobileMenu();
-    });
-  });
-  var logo = document.querySelector('.nav-logo');
-  if (logo) {
-    logo.addEventListener('click', function() { showPage('home'); });
-    logo.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showPage('home'); }
-    });
-  }
-  document.querySelectorAll('[data-page="home"]').forEach(function(l){ l.classList.add('active'); });
-  if ('IntersectionObserver' in window) {
-    var imgs = document.querySelectorAll('img[loading="lazy"]');
-    var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var img = entry.target;
-          if (img.dataset.src) { img.src = img.dataset.src; delete img.dataset.src; }
-          obs.unobserve(img);
-        }
-      });
-    }, {rootMargin:'200px'});
-    imgs.forEach(function(img){ obs.observe(img); });
-  }
-});
+var currentPage='home';var countdownInterval=null;var mobileMenuOpen=false;
+function showPage(page){if(page===currentPage&&document.getElementById('page-'+page)){window.scrollTo({top:0,behavior:'smooth'});return;}document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});var el=document.getElementById('page-'+page);if(!el)return;el.classList.add('active');currentPage=page;document.querySelectorAll('.nav-link').forEach(function(l){var dp=l.getAttribute('data-page');l.classList.toggle('active',dp===page);});window.scrollTo({top:0,behavior:'instant'});if(page==='live'){startCountdown();}else{clearInterval(countdownInterval);countdownInterval=null;}}
+function toggleMobileMenu(){mobileMenuOpen=!mobileMenuOpen;var menu=document.getElementById('mobileNav');var btn=document.getElementById('hamburger');menu.classList.toggle('open',mobileMenuOpen);btn.classList.toggle('open',mobileMenuOpen);btn.setAttribute('aria-expanded',String(mobileMenuOpen));document.body.style.overflow=mobileMenuOpen?'hidden':'';}
+function closeMobileMenu(){if(mobileMenuOpen)toggleMobileMenu();}
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);},{passive:true});
+var toastTimer=null;
+function showToast(msg){var t=document.getElementById('toast');var tm=document.getElementById('toast-msg');tm.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show');},3800);}
+function filterSermons(btn,series){document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');document.querySelectorAll('.sermon-card').forEach(function(card){card.style.display=(series==='all'||card.dataset.series===series)?'':'none';});}
+function selectAmount(el){document.querySelectorAll('.amount-pill').forEach(function(p){p.classList.remove('active');});el.classList.add('active');var custom=document.getElementById('custom-amount');if(custom)custom.value='';}
+function selectGivingType(el){document.querySelectorAll('.giving-type-btn').forEach(function(b){b.classList.remove('active');});el.classList.add('active');}
+function handleGiving(e){e.preventDefault();showToast('Thank you for your generous gift! 🙏 Please complete your bank transfer.');e.target.reset();var pills=document.querySelectorAll('.amount-pill');if(pills[2])selectAmount(pills[2]);}
+function handleContact(e){e.preventDefault();var s=document.getElementById('contact-success');if(s)s.classList.add('show');e.target.reset();showToast("Message sent! We'll respond within 24–48 hours.");setTimeout(function(){if(s)s.classList.remove('show');},7000);}
+function handleJoin(e){e.preventDefault();showToast('Welcome to The Purpose Place! 🎉 Check your email for next steps.');e.target.reset();}
+function startCountdown(){clearInterval(countdownInterval);function getNextSunday10am(){var now=new Date();var next=new Date(now);var day=now.getDay();var daysUntil=day===0?0:7-day;next.setDate(now.getDate()+daysUntil);next.setHours(10,0,0,0);if(day===0&&now>=next){next.setDate(next.getDate()+7);}return next;}
+function pad(n){return String(n).padStart(2,'0');}
+function update(){var now=new Date();var target=getNextSunday10am();var diff=Math.max(0,target-now);var d=Math.floor(diff/86400000);var h=Math.floor((diff%86400000)/3600000);var m=Math.floor((diff%3600000)/60000);var s=Math.floor((diff%60000)/1000);var el={'d':document.getElementById('cd-days'),'h':document.getElementById('cd-hours'),'m':document.getElementById('cd-mins'),'s':document.getElementById('cd-secs')};if(el.d)el.d.textContent=pad(d);if(el.h)el.h.textContent=pad(h);if(el.m)el.m.textContent=pad(m);if(el.s)el.s.textContent=pad(s);}
+update();countdownInterval=setInterval(update,1000);}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&mobileMenuOpen){closeMobileMenu();}});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('[data-page]').forEach(function(link){link.addEventListener('click',function(e){e.preventDefault();var page=this.getAttribute('data-page');showPage(page);closeMobileMenu();});});var logo=document.querySelector('.nav-logo');if(logo){logo.addEventListener('click',function(){showPage('home');});logo.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();showPage('home');}});}document.querySelectorAll('[data-page="home"]').forEach(function(l){l.classList.add('active');});});
 </script>
 </body>
 </html>
