@@ -976,35 +976,24 @@ footer{background:var(--navy);color:var(--white);padding-top:clamp(48px,7vw,80px
         </div>
 
         <!-- YOUTUBE TAB -->
-        <div class="stream-panel active" id="tab-youtube" role="tabpanel">
-          <div class="yt-embed-wrap">
-            <!-- 
-              This embed uses YouTube's live stream player for the channel @akin_akinyemi.
-              When the channel is live it shows the live stream automatically.
-              When not live it shows the channel's latest/featured video.
-              The channel ID for @akin_akinyemi is used via the live parameter.
-            -->
-            <iframe
-              id="yt-live-frame"
-              src="https://www.youtube.com/embed/live_stream?channel=UCw8nZPXJ-MjtaZkUY-tm4cw&autoplay=0&rel=0&modestbranding=1"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              title="The Purpose Place Live Stream"
-              loading="lazy"
-            ></iframe>
-          </div>
-          <div class="stream-info-bar">
-            <div class="info"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>Every Sunday · 10:00 AM</div>
-            <div class="info"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>Tuesday Meeting · 5:30 PM</div>
-            <div class="info" style="gap:10px">
-              <a href="https://youtube.com/@akin_akinyemi?si=0MOc-B9uE1iZl_FN" target="_blank" rel="noopener" class="btn btn-sm" style="background:#FF0000;color:#fff;border-radius:50px;font-size:.78rem;padding:7px 16px;display:inline-flex;align-items:center;gap:6px">
-                <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:white" aria-hidden="true"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-                Open YouTube Channel
-              </a>
-            </div>
-          </div>
-        </div>
-
+   <div class="stream-panel active" id="tab-youtube" role="tabpanel">
+  <div class="yt-embed-wrap">
+    <iframe
+      id="yt-live-frame"
+      src="https://www.youtube.com/embed?channel=UCw8nZPXJ-MjtaZkUY-tm4cw"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      title="The Purpose Place Live Stream"
+    ></iframe>
+  </div>
+  <div class="stream-info-bar">
+    <div class="info">📺 Every Sunday · 10:00 AM</div>
+    <div class="info">🔴 Live stream appears when you're broadcasting</div>
+    <div class="info">
+      <a href="https://youtube.com/@akin_akinyemi" target="_blank" class="btn btn-sm" style="background:#FF0000;color:#fff">Open YouTube Channel</a>
+    </div>
+  </div>
+</div>
         <!-- TELEGRAM TAB -->
         <div class="stream-panel" id="tab-telegram" role="tabpanel">
           <div class="tg-embed-panel">
